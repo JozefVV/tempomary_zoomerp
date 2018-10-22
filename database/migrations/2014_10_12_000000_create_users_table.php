@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Symfony\Component\Console\Helper\Table;
 
 class CreateUsersTable extends Migration
 {
@@ -15,13 +16,23 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('firstname');
+            $table->string('lastname');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
+
+        DB::table('users')->insert([
+            [
+                'firstname' => 'Super',
+                'lastname' => 'Admin',
+                'email' => 'superadmin@admins.com',
+                'password' => Hash::make('Superadmin123'),
+                'remember_token' => str_random(10),]
+        ]);
     }
 
     /**

@@ -64,7 +64,17 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+    {{-- debug, info, notice, warning, error, critical, alert, emergency --}}
+    {{ Debugbar::info('Toto je welcome page - uvodna obrazovka.') }}
+    {{ Debugbar::debug('Toto je welcome page - uvodna obrazovka.') }}
+    {{ Debugbar::notice('Toto je welcome page - uvodna obrazovka.') }}
+    {{ Debugbar::warning('Toto je welcome page - uvodna obrazovka.') }}
+    {{ Debugbar::error('Toto je welcome page - uvodna obrazovka.') }}
+    {{ Debugbar::critical('Toto je welcome page - uvodna obrazovka.') }}
+    {{ Debugbar::alert('Toto je welcome page - uvodna obrazovka.') }}
+    {{ Debugbar::emergency('Toto je welcome page - uvodna obrazovka.') }}
+
+    <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -81,7 +91,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    {{ config('app.name') }}
                 </div>
 
                 <div class="links">
