@@ -25,14 +25,6 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
-        DB::table('users')->insert([
-            [
-                'firstname' => 'Super',
-                'lastname' => 'Admin',
-                'email' => 'superadmin@admins.com',
-                'password' => Hash::make('Superadmin123'),
-                'remember_token' => str_random(10),]
-        ]);
     }
 
     /**
