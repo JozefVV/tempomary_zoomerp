@@ -55,6 +55,23 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    @if ( Auth::user()->hasRole('admin') or Auth::user()->hasRole('superadmin') )
+                                        <a class="dropdown-item" href="{{ url('/') }}">Užívatelia</a>
+                                        <a class="dropdown-item" href="{{ url('/') }}">Zákazníci</a>
+                                        <a class="dropdown-item" href="{{ url('/') }}">Dodávatelia</a>
+                                        <a class="dropdown-item" href="{{ url('/') }}">Produkty</a>
+                                        <a class="dropdown-item" href="{{ url('/') }}">Sklady</a>
+                                        <a class="dropdown-item" href="{{ url('/') }}">Objednávky</a>
+                                        <a class="dropdown-item" href="{{ url('/') }}">Ponuky</a>
+                                        <a class="dropdown-item" href="{{ url('/') }}">Merania</a>
+                                        <a class="dropdown-item" href="{{ url('/') }}">Faktúry</a>
+                                        <a class="dropdown-item" href="{{ url('/') }}">Pôžičky</a>
+                                        <a class="dropdown-item" href="{{ url('/') }}">Splátky</a>
+                                        <a class="dropdown-item" href="{{ url('/') }}">Majetok</a>
+                                        <a class="dropdown-item" href="{{ url('/') }}">Úlohy</a>
+                                        <a class="dropdown-item" href="{{ url('/') }}">Udalosti</a>
+                                        <hr>
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
