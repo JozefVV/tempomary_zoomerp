@@ -56,27 +56,27 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="../UI/general.html" class="nav-link">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon far fa-circle"></i>
 
                         <p>General</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="../UI/icons.html" class="nav-link">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon far fa-circle"></i>
 
                         <p>Icons</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="../UI/buttons.html" class="nav-link">
+                    <a href="#" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
                         <p>Buttons</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="../UI/sliders.html" class="nav-link">
+                    <a href="#" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
                         <p>Sliders</p>
                     </a>
@@ -104,21 +104,38 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="../mailbox/mailbox.html" class="nav-link">
-                        <i class="fa fa-circle-o nav-icon"></i>
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-circle"></i>
                         <p>List users</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="../mailbox/compose.html" class="nav-link">
-                        <i class="fa fa-circle-o nav-icon"></i>
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-circle"></i>
                         <p>New user</p>
                     </a>
                 </li>
             </ul>
         </li>
+        <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-warehouse"></i>
+                <p>
+                    Sklad
+                    <i class="fa fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-circle"></i>
+                        <p>Zobrazenie skladu</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
         <li class="nav-item">
-            <a href="https://adminlte.io/docs" class="nav-link">
+            <a href="#" class="nav-link">
                 <i class="nav-icon fa fa-file"></i>
                 <p>Documents</p>
             </a>

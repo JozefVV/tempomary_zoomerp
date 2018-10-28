@@ -42,11 +42,8 @@
         <!-- /. Footer End -->
 
         <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-            Control Sidebar
-        </aside>
-        <!-- /.control-sidebar -->
+        @include('partials.control_sidebar')
+        <!-- /.control-sidebar End -->
 
     </div>
     <!-- ./wrapper -->
