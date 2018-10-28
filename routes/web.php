@@ -23,5 +23,3 @@ Auth::routes(['register' => false]);
 // Nasledujuce url len pre prihlaseneho users
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 Route::get('/contact', 'HomeController@contact')->name('contact');
-
-// Test
