@@ -1,12 +1,23 @@
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+//@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700');
 
 // Variables
 @import 'variables';
+$fa-font-path: "../webfonts";
+
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// Font-Awesome
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+
+// Admin LTE 3 - sablona
+@import "~admin-lte/dist/css/adminlte.css";
 
 .navbar-laravel {
   background-color: #fff;
