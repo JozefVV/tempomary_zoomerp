@@ -7,7 +7,7 @@
             <a href="{{ route('dashboard') }}" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
-                    Dashboard
+                    {{__('dashboard.Dashboard')}}
                     {{--<i class="right fa fa-angle-left"></i>--}}
                 </p>
             </a>
@@ -30,8 +30,8 @@
             <a href="#" class="nav-link">
                 <i class="nav-icon fa fa-th"></i>
                 <p>
-                    Widgets
-                    <span class="right badge badge-danger">New</span>
+                    {{__('dashboard.Widgets')}}
+                    <span class="right badge badge-danger">{{__('dashboard.New')}}</span>
                 </p>
             </a>
         </li>
@@ -39,7 +39,7 @@
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-chart-line"></i>
                 <p>
-                    Charts
+                    {{__('dashboard.Charts')}}
                     <i class="right fa fa-angle-left"></i>
                 </p>
             </a>
@@ -48,21 +48,21 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon far fa-circle"></i>
 
-                        <p>ChartJS</p>
+                        <p>{{__('dashboard.ChartJS')}}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon far fa-circle"></i>
 
-                        <p>Flot</p>
+                        <p>{{__('dashboard.Flot')}}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon far fa-circle"></i>
 
-                        <p>Inline</p>
+                        <p>{{__('dashboard.Inline')}}</p>
                     </a>
                 </li>
             </ul>
@@ -71,7 +71,7 @@
             <a href="#" class="nav-link">
                 <i class="nav-icon fa fa-tree"></i>
                 <p>
-                    UI Elements
+                    {{__('dashboard.UI Elements')}}
                     <i class="fa fa-angle-left right"></i>
                 </p>
             </a>
@@ -80,26 +80,26 @@
                     <a href="../UI/general.html" class="nav-link">
                         <i class="nav-icon far fa-circle"></i>
 
-                        <p>General</p>
+                        <p>{{__('dashboard.General')}}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="../UI/icons.html" class="nav-link">
                         <i class="nav-icon far fa-circle"></i>
 
-                        <p>Icons</p>
+                        <p>{{__('dashboard.Icons')}}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="../UI/buttons.html" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p>Buttons</p>
+                        <p>{{__('dashboard.Buttons')}}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="../UI/sliders.html" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p>Sliders</p>
+                        <p>{{__('dashboard.Sliders')}}</p>
                     </a>
                 </li>
             </ul>
@@ -108,7 +108,7 @@
             <a href="#" class="nav-link">
                 <i class="nav-icon fa fa-edit"></i>
                 <p>
-                    Forms
+                    {{__('dashboard.Forms')}}
                     <i class="fa fa-angle-left right"></i>
                 </p>
             </a>
@@ -116,19 +116,19 @@
                 <li class="nav-item">
                     <a href="../forms/general.html" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p>General Elements</p>
+                        <p>{{__('dashboard.General Elements')}}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="../forms/advanced.html" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p>Advanced Elements</p>
+                        <p>{{__('dashboard.Advanced Elements')}}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="../forms/editors.html" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p>Editors</p>
+                        <p>{{__('dashboard.Editors')}}</p>
                     </a>
                 </li>
             </ul>
@@ -137,7 +137,7 @@
             <a href="#" class="nav-link">
                 <i class="nav-icon fa fa-table"></i>
                 <p>
-                    Tables
+                    {{__('dashboard.Tables')}}
                     <i class="fa fa-angle-left right"></i>
                 </p>
             </a>
@@ -145,23 +145,23 @@
                 <li class="nav-item">
                     <a href="../tables/simple.html" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p>Simple Tables</p>
+                        <p>{{__('dashboard.Simple Tables')}}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="../tables/data.html" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p>Data Tables</p>
+                        <p>{{__('dashboard.Data Tables')}}</p>
                     </a>
                 </li>
             </ul>
         </li>
-        <li class="nav-header">EXAMPLES</li>
+        <li class="nav-header">{{__('dashboard.EXAMPLES')}}</li>
         <li class="nav-item">
             <a href="../calendar.html" class="nav-link">
                 <i class="nav-icon fa fa-calendar"></i>
                 <p>
-                    Calendar
+                    {{__('dashboard.Calendar')}}
                     <span class="badge badge-info right">2</span>
                 </p>
             </a>
@@ -170,7 +170,7 @@
             <a href="#" class="nav-link">
                 <i class="nav-icon far fa-envelope"></i>
                 <p>
-                    Mailbox
+                    {{__('dashboard.Mailbox')}}
                     <i class="fa fa-angle-left right"></i>
                 </p>
             </a>
@@ -178,19 +178,19 @@
                 <li class="nav-item">
                     <a href="../mailbox/mailbox.html" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p>Inbox</p>
+                        <p>{{__('dashboard.Inbox')}}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="../mailbox/compose.html" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p>Compose</p>
+                        <p>{{__('dashboard.Compose')}}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="../mailbox/read-mail.html" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p>Read</p>
+                        <p>{{__('dashboard.Read')}}</p>
                     </a>
                 </li>
             </ul>
@@ -199,7 +199,7 @@
             <a href="#" class="nav-link">
                 <i class="nav-icon fa fa-book"></i>
                 <p>
-                    Pages
+                    {{__('dashboard.Pages')}}
                     <i class="fa fa-angle-left right"></i>
                 </p>
             </a>
@@ -207,31 +207,31 @@
                 <li class="nav-item">
                     <a href="../examples/invoice.html" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p>Invoice</p>
+                        <p>{{__('dashboard.Invoice')}}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="../examples/profile.html" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p>Profile</p>
+                        <p>{{__('dashboard.Profile')}}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="../examples/login.html" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p>Login</p>
+                        <p>{{__('dashboard.Login')}}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="../examples/register.html" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p>Register</p>
+                        <p>{{__('dashboard.Register')}}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="../examples/lockscreen.html" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p>Lockscreen</p>
+                        <p>{{__('dashboard.Lockscreen')}}</p>
                     </a>
                 </li>
             </ul>
@@ -240,7 +240,7 @@
             <a href="#" class="nav-link">
                 <i class="nav-icon far fa-plus-square"></i>
                 <p>
-                    Extras
+                    {{__('dashboard.Extras')}}
                     <i class="fa fa-angle-left right"></i>
                 </p>
             </a>
@@ -248,53 +248,53 @@
                 <li class="nav-item">
                     <a href="../examples/404.html" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p>Error 404</p>
+                        <p>{{__('dashboard.Error 404')}}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="../examples/500.html" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p>Error 500</p>
+                        <p>{{__('dashboard.Error 500')}}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="../examples/blank.html" class="nav-link active">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p>Blank Page</p>
+                        <p>{{__('dashboard.Blank Page')}}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="../../starter.html" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p>Starter Page</p>
+                        <p>{{__('dashboard.Starter Page')}}</p>
                     </a>
                 </li>
             </ul>
         </li>
-        <li class="nav-header">MISCELLANEOUS</li>
+        <li class="nav-header">{{__('dashboard.MISCELLANEOUS')}}</li>
         <li class="nav-item">
             <a href="https://adminlte.io/docs" class="nav-link">
                 <i class="nav-icon fa fa-file"></i>
-                <p>Documentation</p>
+                <p>{{__('dashboard.Documentation')}}</p>
             </a>
         </li>
-        <li class="nav-header">LABELS</li>
+        <li class="nav-header">{{__('dashboard.LABELS')}}</li>
         <li class="nav-item">
             <a href="#" class="nav-link">
                 <i class="nav-icon far fa-circle text-danger"></i>
-                <p class="text">Important</p>
+                <p class="text">{{__('dashboard.Important')}}</p>
             </a>
         </li>
         <li class="nav-item">
             <a href="#" class="nav-link">
                 <i class="nav-icon far fa-circle text-warning"></i>
-                <p>Warning</p>
+                <p>{{__('dashboard.Warning')}}</p>
             </a>
         </li>
         <li class="nav-item">
             <a href="#" class="nav-link">
                 <i class="nav-icon far fa-circle text-info"></i>
-                <p>Informational</p>
+                <p>{{__('dashboard.Informational')}}</p>
             </a>
         </li>
     </ul>
