@@ -81,10 +81,10 @@
                     @auth
                         <a href="{{ url('/dashboard') }}">Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}">{{__('dashboard.Login')}}</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">{{__('dashboard.Register')}}</a>
                         @endif
                     @endauth
                 </div>

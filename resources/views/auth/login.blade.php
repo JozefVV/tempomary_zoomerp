@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name') }} | Login</title>
+    <title>{{ config('app.name') }} | {{__('dashboard.Login')}}</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,7 +23,7 @@
     <!-- /.login-logo -->
     <div class="card">
         <div class="card-body login-card-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+            <p class="login-box-msg">{{__('dashboard.Sign in to start your session')}}</p>
 
             <form action="{{ route('login') }}" method="post">
                 @csrf
@@ -40,13 +40,13 @@
                     <div class="col-8">
                         <div class="checkbox icheck">
                             <label>
-                                <input type="checkbox"> Remember Me
+                                <input type="checkbox">{{__('dashboard.Remember Me')}}
                             </label>
                         </div>
                     </div>
                     <!-- /.col -->
                     <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">{{__('dashboard.Sign In')}}</button>
                     </div>
                     <!-- /.col -->
                 </div>
@@ -65,7 +65,7 @@
             <!-- /.social-auth-links -->
 
             <p class="mb-1">
-                <a href="{{ route('password.request') }}">I forgot my password</a>
+                <a href="{{ route('password.request') }}">{{__('dashboard.I forgot my password')}}</a>
             </p>
             {{--<p class="mb-0">--}}
                 {{--<a href="register.html" class="text-center">Register a new membership</a>--}}

@@ -17,13 +17,13 @@
             {{--<i class="fas fa-caret-down"></i>--}}
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Môj profil</a>
-            <a class="dropdown-item" href="#">Zmena hesla</a>
+            <a class="dropdown-item" href="#">{{__('dashboard.My profile')}}</a>
+            <a class="dropdown-item" href="#">{{__('dashboard.Change password')}}</a>
             <hr>
             <a class="dropdown-item" href="{{ route('logout') }}"
-               onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                {{ __('Logout') }}
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                {{ __('dashboard.Logout') }}
             </a>
         </div>
     </li>
@@ -31,8 +31,8 @@
     {{--Logout--}}
     <li class="nav-item">
         <a class="nav-link" href="{{ route('logout') }}"
-           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+            onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
             <i class="fas fa-sign-out-alt"></i>
         </a>
 

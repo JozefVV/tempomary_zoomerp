@@ -54,6 +54,6 @@
             <!-- Message End -->
         </a>
         <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        <a href="#" class="dropdown-item dropdown-footer">{{__('dasboard.See_All_Messages')}}</a>
     </div>
 </li>
