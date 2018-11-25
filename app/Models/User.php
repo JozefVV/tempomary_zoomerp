@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -34,5 +34,15 @@ class User extends Authenticatable
     public function getFullnameAttribute()
     {
         return ($this->firstname. ' ' .$this->lastname);
+    }
+    public function disable()
+    {
+        $this->enabled = false;
+        return $this;
+    }
+    public function enable()
+    {
+        $this->enabled = true;
+        return $this;
     }
 }
