@@ -14,15 +14,9 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->truncate();
 
-        User::create([
-            'role_id' => 1,
-            'firstname' => 'Super',
-            'lastname' => 'Admin',
-            'email' => 'superadmin@admins.com',
-            'password' => Hash::make('Superadmin123'),
-            'remember_token' => str_random(10)
-        ]);
-
-        factory(User::class,10)->create();
+        factory(User::class)->state('superadmin')->create();
+        factory(User::class,3)->state('admin')->create();
+        factory(User::class,5)->state('manager')->create();
+        factory(User::class,30)->state('user')->create();
     }
 }
