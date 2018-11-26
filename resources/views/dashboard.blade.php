@@ -20,7 +20,7 @@
     </div>
     <!-- /.content-wrapper -->
 
-    {{ Debugbar::info('Rola prihlaseneho usera: ' . Auth::user()->role->name ) }}
+    {{-- {{ Debugbar::info('Rola prihlaseneho usera: ' . Auth::user()->role->name ) }} --}}
     {{ Debugbar::debug( Auth::user()->toarray() ) }}
     {{--{{ Debugbar::debug( Auth::user()->hasRole('superadmin') ) }}--}}
     {{--{{ Debugbar::debug( Auth::user()->hasRole('user') ) }}--}}
