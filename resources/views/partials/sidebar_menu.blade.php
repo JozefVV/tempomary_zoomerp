@@ -104,7 +104,7 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('userAdministration') }}" class="nav-link">
                         <i class="nav-icon far fa-circle"></i>
                         <p>{{__('dashboard.List users')}}</p>
                     </a>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 use App\Models\User;
 
 class UserEditorController extends Controller
@@ -19,12 +20,13 @@ class UserEditorController extends Controller
 
     public function index(Request $request, Response $response)
     {
-        if(!Auth::user()->hasRole('admin'))
+        if(!Auth::user()->hasAnyRole(['admin','superadmin']))
         {
             abort(403);
         }
+        $userList = User::paginate(15);
 
-        return view('userAdministration.list');
+        return view('userAdministration.userList',['users' => $userList]);
     }
 
     public function list(Request $request, Response $response)
@@ -101,7 +103,7 @@ class UserEditorController extends Controller
     public function addRole(Request $request, Response $response)
     {
         $user = $this->getUserToEdit($request);
-        $validatedData = $request->validate(['role' => ['required', Rule::in($this->allAuthRoles())]]);
+        $validatedData = $request->validate(['role' => ['required', Rule::in(Role::all())]]);
 
         $user->assignRole($validatedData['role']);
         return response()->json($user,200);
@@ -109,21 +111,10 @@ class UserEditorController extends Controller
     public function removeRole(Request $request, Response $response)
     {
         $user = $this->getUserToEdit($request);
-        $validatedData = $request->validate(['role' => ['required', Rule::in($this->allAuthRoles())]]);
+        $validatedData = $request->validate(['role' => ['required', Rule::in(Role::all())]]);
 
         $user->removeRole($validatedData['role']);
         return response()->json($user,200);
-    }
-
-    private function allAuthRoles()
-    {
-        $rolesCollection = Spatie\Permission\Models\Role::all();
-        $roleNames = [];
-        foreach($rolesCollection as $roleItem)
-        {
-            $roleNames[] = $roleItem->name;
-        }
-        return $roleNames;
     }
 
     private function getUserToEdit(Request $request)
