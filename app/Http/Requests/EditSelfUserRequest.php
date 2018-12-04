@@ -5,12 +5,13 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use App\Models\User;
 use Spatie\Permission\Models\Role;
 
 
 
 
-class CreateUserRequest extends FormRequest
+class EditSelfUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -19,7 +20,7 @@ class CreateUserRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::User()->can('create users');
+        return Hash::check(Auth::User()->password, $this->input('password_old'));
     }
 
     /**
@@ -30,12 +31,11 @@ class CreateUserRequest extends FormRequest
     public function rules()
     {
         return  [
-            'firstname' => ['required', 'string', 'max:255'],
-            'lastname' => ['required', 'string', 'max:255'],
+            'firstname' => ['sometimes', 'string', 'max:255'],
+            'lastname' => ['sometimes', 'string', 'max:255'],
             'nickname' => ['sometimes', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
-            'role' => ['required', Rule::in($this->allRoles())],
+            'email' => ['sometimes', 'string', 'email', 'max:255'],
+            'password' => ['sometimes', 'string', 'min:6', 'confirmed'],
         ];
     }
 
@@ -46,9 +46,9 @@ class CreateUserRequest extends FormRequest
      */
     public function messages()
     {
-        return [
-            'role.in' => 'Unrecognized role',
-        ];
+    return [
+        'role.in' => 'Unrecognized role',
+    ];
     }
 
     private function allRoles()

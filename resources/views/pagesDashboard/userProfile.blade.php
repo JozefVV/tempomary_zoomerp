@@ -62,7 +62,8 @@
         <h4 class="mb-xlg">Change Password</h4>
         <form class="form-horizontal form-bordered" action="{{ route('userAdministration.changePassword') }}" method="post" enctype="multipart/form-data">
             @csrf
-            <input type="number" name="id" value="{{ $user->id }}" class="hidden" /> @hasanyrole('superadmin|admin') @else
+            <input type="number" name="id" value="{{ $user->id }}" class="hidden" />
+            @hasanyrole('superadmin|admin') @else
             <div class="form-group">
                 <label class="col-md-3 control-label">Old Password</label>
                 <div class="col-md-8">

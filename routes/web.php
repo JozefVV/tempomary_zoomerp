@@ -39,7 +39,7 @@ Route::namespace('UserAdmnistration')->group(function () {
     Route::post('/users/enable', 'UserEditorController@enableAccess')->name('userAdministration.enableAccess');
     Route::post('/users/toggle', 'UserEditorController@toggleAccess')->name('userAdministration.toggleAccess');
     Route::post('/users/edit', 'UserEditorController@edit')->name('userAdministration.edit');
-    Route::post('/users/password/change', 'UserEditorController@changePassword')->name('userAdministration.changePassword');
+    Route::post('/users/password/change', 'UserEditorController@edit')->name('userAdministration.changePassword');
     Route::post('/users/role/add', 'UserEditorController@addRole')->name('userAdministration.addRole');
     Route::post('/users/role/remove', 'UserEditorController@removeRole')->name('userAdministration.removeRole');
 });

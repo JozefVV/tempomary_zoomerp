@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\EditUserRequest;
+use App\Http\Requests\EditSelfUserRequest;
 use App\Http\Controllers\Controller;
 use App\Rules\TableContainsId;
 use App\Models\User;
@@ -27,7 +29,7 @@ class UserEditorController extends Controller
         {
             abort(403);
         }
-        $userList = User::paginate(15);
+        $userList = User::all();
 
         return view('pagesDashboard.userAdministration',['users' => $userList]);
     }
@@ -61,8 +63,6 @@ class UserEditorController extends Controller
 
         $newUser->assignRole($validated['role']);
 
-        // return response()->json($newUser,200);
-
         return redirect()->route('userAdministration');
     }
     public function disableAccess(Request $request, Response $response)
@@ -95,66 +95,56 @@ class UserEditorController extends Controller
     }
 
 
-    public function edit(Request $request, Response $response)
+    public function edit(EditUserRequest $request, Response $response)
     {
-        $parametersAndValidations = [
-            'id' => 'bail|required|integer|exists:'.(new User)->getTable().',id',
-            'firstname' => 'nullable|string',
-            'lastname' => 'nullable|string',
-            'nickname' => 'nullable|string',
-            'email' => 'nullable|string',
-        ];
-        $validatedData = $request->validate($parametersAndValidations);
-
+        $validatedData = $request->validated();
         $user = User::find($validatedData['id']);
-        if(!$this->canEditUser($validatedData['id'])){ return abort(403); }
 
-        //iterate through all optionall parameters and
-        //update model with only those that exist in request
-        unset($parametersAndValidations['id']);
-        foreach($parametersAndValidations as $parameterName=>$rule)
+        if( !(Auth::User()->can('edit users') || Auth::User()->id == $user->id) ){ return abort(403); }
+
+        $ignoreParams = ['id','role','password'];
+        foreach($validatedData as $parameterName=>$value)
         {
-            if(array_key_exists($parameterName,$validatedData))
+            if(!in_array($parameterName,$ignoreParams))
             {
-                $user[$parameterName] = $validatedData[$parameterName];
+                $user[$parameterName] = $value;
             }
         }
+
+        if(array_key_exists('password',$validatedData))
+        {
+            $user->password = Hash::make($validatedData['password']);
+        }
+
         $user->save();
 
-        if($request->has('role'))
+        if(array_key_exists('role',$validatedData))
         {
-            $newRole = $request->input('role');
-            if(!(Role::where('name','=',$newRole)->first()))
-            {
-                $errors = ['role' => 'Error: could not find role specified as new role.'];
-                return Redirect::back()->withInput(Input::all())->withErrors($errors, $this->errorBag());
-            }
-            $user->syncRoles([$newRole]);
+            $user->syncRoles([$validatedData['role']]);
         }
 
-        // return response()->json($user,200);
         return Redirect::back();
-
     }
 
-    public function changePassword(Request $request, Response $response)
+    public function editSelf(EditSelfUserRequest $request, Response $response)
     {
-        $parametersAndValidations = [
-            'id' => 'bail|required|integer|exists:'.(new User)->getTable().',id',
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
-        ];
-        $validatedData = $request->validate($parametersAndValidations);
-        $user = User::find($validatedData['id']);
+        $validatedData = $request->validated();
+        $user = Auth::User();
 
-        if(!$this->canEditUser($validatedData['id'])){ return abort(403); }
-
-        if( !( ($this->passwordMatches($user->password,$validatedData['password'])) || (Auth::user()->hasAnyRole(['superadmin','admin'])) ) )
+        $ignoreParams = ['id','role','password'];
+        foreach($validatedData as $parameterName=>$value)
         {
-            $errors = ['password_old' => 'Error: old password does not match current one, cant change to new.'];
-            return Redirect::back()->withInput(Input::all())->withErrors($errors, $this->errorBag());
+            if(!in_array($parameterName,$ignoreParams))
+            {
+                $user[$parameterName] = $value;
+            }
         }
 
-        $user->password = Hash::make($validatedData['password']);
+        if(array_key_exists('password',$validatedData))
+        {
+            $user->password = Hash::make($validatedData['password']);
+        }
+
         $user->save();
 
         return Redirect::back();
@@ -175,11 +165,6 @@ class UserEditorController extends Controller
 
         $user->removeRole($validatedData['role']);
         return response()->json($user,200);
-    }
-
-    private function passwordMatches($hash,$plaintext)
-    {
-        return Hash::check($hash, $plaintext);
     }
 
     private function canEditUser($editedUserId)
