@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers\UserAdmnistration;
 
-use App\Rules\TableContainsId;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
-use Spatie\Permission\Models\Role;
+use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\EditUserRequest;
+use App\Http\Requests\EditSelfUserRequest;
+use App\Http\Controllers\Controller;
+use App\Rules\TableContainsId;
 use App\Models\User;
+use Spatie\Permission\Models\Role;
 
 class UserEditorController extends Controller
 {
@@ -24,9 +29,19 @@ class UserEditorController extends Controller
         {
             abort(403);
         }
-        $userList = User::paginate(15);
+        $userList = User::all();
 
-        return view('userAdministration.userList',['users' => $userList]);
+        return view('pagesDashboard.userAdministration',['users' => $userList]);
+    }
+
+    public function registerView(Request $request, Response $response)
+    {
+        if(!Auth::user()->hasAnyRole(['admin','superadmin','manager']))
+        {
+            abort(403);
+        }
+
+        return view('pagesDashboard.registerUser');
     }
 
     public function list(Request $request, Response $response)
@@ -39,27 +54,35 @@ class UserEditorController extends Controller
     public function create(CreateUserRequest $request, Response $response)
     {
         $validated = $request->validated();
-
         $newUser = new User;
-        $newUser->firstName = $validated->firstName;
-        $newUser->lastName = $validated->lastName;
-        $newUser->email = $validated->email;
-        $newUser->password = $validated->password;
+        $newUser->firstName = $validated['firstname'];
+        $newUser->lastName = $validated['lastname'];
+        $newUser->email = $validated['email'];
+        $newUser->password = Hash::make($validated['password']);
         $newUser->save();
 
-        return response()->json($newUser,200);
+        $newUser->assignRole($validated['role']);
+
+        return redirect()->route('userAdministration');
     }
-    public function disable(Request $request, Response $response)
+    public function disableAccess(Request $request, Response $response)
     {
         $user = $this->getUserToEdit($request);
         $user->disable()->save();
 
         return response()->json($user,200);
     }
-    public function enable(Request $request, Response $response)
+    public function enableAccess(Request $request, Response $response)
     {
         $user = $this->getUserToEdit($request);
         $user->enable()->save();
+
+        return response()->json($user,200);
+    }
+    public function toggleAccess(Request $request, Response $response)
+    {
+        $user = $this->getUserToEdit($request);
+        $user->toggleAccess()->save();
 
         return response()->json($user,200);
     }
@@ -72,32 +95,59 @@ class UserEditorController extends Controller
     }
 
 
-    public function edit(Request $request, Response $response)
+    public function edit(EditUserRequest $request, Response $response)
     {
-        $parametersAndValidations = [
-            'id' => 'bail|required|integer|exists:'.(new User)->getTable().',id',
-            'firstname' => 'nullable|string',
-            'lastname' => 'nullable|string',
-            'nickname' => 'nullable|string',
-            'email' => 'nullable|string',
-        ];
-        $validatedData = $request->validate($parametersAndValidations);
-
+        $validatedData = $request->validated();
         $user = User::find($validatedData['id']);
-        unset($parametersAndValidations['id']);
 
-        //iterate through all optionall parameters and
-        //update model with only those that exist in request
-        foreach($parametersAndValidations as $parameterName=>$rule)
+        if( !(Auth::User()->can('edit users') || Auth::User()->id == $user->id) ){ return abort(403); }
+
+        $ignoreParams = ['id','role','password'];
+        foreach($validatedData as $parameterName=>$value)
         {
-            if(array_key_exists($parameterName,$validatedData))
+            if(!in_array($parameterName,$ignoreParams))
             {
-                $user[$parameterName] = $validatedData[$parameterName];
+                $user[$parameterName] = $value;
             }
         }
+
+        if(array_key_exists('password',$validatedData))
+        {
+            $user->password = Hash::make($validatedData['password']);
+        }
+
         $user->save();
 
-        return response()->json($user,200);
+        if(array_key_exists('role',$validatedData))
+        {
+            $user->syncRoles([$validatedData['role']]);
+        }
+
+        return Redirect::back();
+    }
+
+    public function editSelf(EditSelfUserRequest $request, Response $response)
+    {
+        $validatedData = $request->validated();
+        $user = Auth::User();
+
+        $ignoreParams = ['id','role','password'];
+        foreach($validatedData as $parameterName=>$value)
+        {
+            if(!in_array($parameterName,$ignoreParams))
+            {
+                $user[$parameterName] = $value;
+            }
+        }
+
+        if(array_key_exists('password',$validatedData))
+        {
+            $user->password = Hash::make($validatedData['password']);
+        }
+
+        $user->save();
+
+        return Redirect::back();
     }
 
     public function addRole(Request $request, Response $response)
@@ -115,6 +165,15 @@ class UserEditorController extends Controller
 
         $user->removeRole($validatedData['role']);
         return response()->json($user,200);
+    }
+
+    private function canEditUser($editedUserId)
+    {
+        if( (Auth::User()->hasAnyRole(['superadmin','admin'])) || (Auth::User()->id == $editedUserId) )
+        {
+            return true;
+        }
+        return false;
     }
 
     private function getUserToEdit(Request $request)
