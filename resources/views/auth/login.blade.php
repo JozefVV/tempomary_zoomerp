@@ -1,90 +1,141 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!doctype html>
+<html class="fixed">
+	<head>
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+		<!-- Basic -->
+		<meta charset="UTF-8">
 
-    <title>{{ config('app.name') }} | Login</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="HTML5 Admin Template" />
+		<meta name="description" content="Porto Admin - Responsive HTML5 Template">
+		<meta name="author" content="okler.net">
 
-    {{--SASS--}}
-    <link rel="stylesheet" href="{{  asset('css/app.css') }}">
+		<!-- Mobile Metas -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-</head>
-<body class="hold-transition login-page">
-<div class="login-box">
-    <div class="login-logo">
-        <a href="{{ url('/') }}"><b>{{ config('app.name') }}</b></a>
-    </div>
-    <!-- /.login-logo -->
-    <div class="card">
-        <div class="card-body login-card-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+		<!-- Web Fonts  -->
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
 
-            <form action="{{ route('login') }}" method="post">
-                @csrf
+		<!-- Vendor CSS -->
+		<link rel="stylesheet" href="/octopusTemplateAssets/vendor/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="/octopusTemplateAssets/vendor/font-awesome/css/font-awesome.css" />
+		<link rel="stylesheet" href="/octopusTemplateAssets/vendor/magnific-popup/magnific-popup.css" />
+		<link rel="stylesheet" href="/octopusTemplateAssets/vendor/bootstrap-datepicker/css/datepicker3.css" />
 
-                <div class="form-group has-feedback">
-                    <input type="email" class="form-control" placeholder="Email" name="email">
-                    <span class="fa fa-envelope form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="Password" name="password">
-                    <span class="fa fa-lock form-control-feedback"></span>
-                </div>
-                <div class="row">
-                    <div class="col-8">
-                        <div class="checkbox icheck">
-                            <label>
-                                <input type="checkbox"> Remember Me
-                            </label>
-                        </div>
-                    </div>
-                    <!-- /.col -->
-                    <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-                    </div>
-                    <!-- /.col -->
-                </div>
-            </form>
+		<!-- Theme CSS -->
+		<link rel="stylesheet" href="/octopusTemplateAssets/stylesheets/theme.css" />
 
-            <!-- Social-auth-links -->
-            {{--<div class="social-auth-links text-center mb-3">--}}
-                {{--<p>- OR -</p>--}}
-                {{--<a href="#" class="btn btn-block btn-primary">--}}
-                    {{--<i class="fa fa-facebook mr-2"></i> Sign in using Facebook--}}
-                {{--</a>--}}
-                {{--<a href="#" class="btn btn-block btn-danger">--}}
-                    {{--<i class="fa fa-google-plus mr-2"></i> Sign in using Google+--}}
-                {{--</a>--}}
-            {{--</div>--}}
-            <!-- /.social-auth-links -->
+		<!-- Skin CSS -->
+		<link rel="stylesheet" href="/octopusTemplateAssets/stylesheets/skins/default.css" />
 
-            <p class="mb-1">
-                <a href="{{ route('password.request') }}">I forgot my password</a>
-            </p>
-            {{--<p class="mb-0">--}}
-                {{--<a href="register.html" class="text-center">Register a new membership</a>--}}
-            {{--</p>--}}
-        </div>
-        <!-- /.login-card-body -->
-    </div>
-</div>
-<!-- /.login-box -->
+		<!-- Theme Custom CSS -->
+		<link rel="stylesheet" href="/octopusTemplateAssets/stylesheets/theme-custom.css">
 
-<script src="{{ asset('js/app.js') }}"></script>
-<script>
-    $(function () {
-        $('input').iCheck({
-            checkboxClass: 'icheckbox_square-blue',
-            radioClass   : 'iradio_square-blue',
-            increaseArea : '20%' // optional
-        })
-    })
-</script>
-</body>
+		<!-- Head Libs -->
+		<script src="/octopusTemplateAssets/vendor/modernizr/modernizr.js"></script>
+
+	</head>
+	<body>
+		<!-- start: page -->
+		<section class="body-sign">
+			<div class="center-sign">
+				<a href="/" class="logo pull-left">
+					<img src="/octopusTemplateAssets/images/logo.png" height="54" alt="Porto Admin" />
+				</a>
+
+				<div class="panel panel-sign">
+					<div class="panel-title-sign mt-xl text-right">
+						<h2 class="title text-uppercase text-bold m-none"><i class="fa fa-user mr-xs"></i> Sign In</h2>
+					</div>
+					<div class="panel-body">
+                        <form action="{{ route('login') }}" method="post">
+                            @csrf
+							<div class="form-group mb-lg">
+								<label>E-mail</label>
+								<div class="input-group input-group-icon">
+                                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                                        <span class="input-group-addon">
+                                            <span class="icon icon-lg">
+                                                <i class="fa fa-user"></i>
+                                            </span>
+                                        </span>
+                                    @if ($errors->has('email'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                                    @endif
+								</div>
+							</div>
+
+							<div class="form-group mb-lg">
+								<div class="clearfix">
+									<label class="pull-left">Password</label>
+									<a href="pages-recover-password.html" class="pull-right">Lost Password?</a>
+								</div>
+								<div class="input-group input-group-icon">
+                                        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                        <span class="input-group-addon">
+                                            <span class="icon icon-lg">
+                                                <i class="fa fa-lock"></i>
+                                            </span>
+                                        </span>
+                                    @if ($errors->has('password'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('password') }}</strong>
+                                        </span>
+                                    @endif
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-sm-8">
+									<div class="checkbox-custom checkbox-default">
+										<input id="RememberMe" name="rememberme" type="checkbox"/>
+										<label for="RememberMe">Remember Me</label>
+									</div>
+								</div>
+								<div class="col-sm-4 text-right">
+									<button type="submit" class="btn btn-primary hidden-xs">Sign In</button>
+									<button type="submit" class="btn btn-primary btn-block btn-lg visible-xs mt-lg">Sign In</button>
+								</div>
+							</div>
+
+							<span class="mt-lg mb-lg line-thru text-center text-uppercase">
+								<span>or</span>
+							</span>
+
+							<div class="mb-xs text-center">
+								<a class="btn btn-facebook mb-md ml-xs mr-xs">Connect with <i class="fa fa-facebook"></i></a>
+								<a class="btn btn-twitter mb-md ml-xs mr-xs">Connect with <i class="fa fa-twitter"></i></a>
+							</div>
+
+							<p class="text-center">Don't have an account yet? <a href="pages-signup.html">Sign Up!</a>
+
+						</form>
+					</div>
+				</div>
+
+				<p class="text-center text-muted mt-md mb-md">&copy; Copyright 2018. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+			</div>
+		</section>
+		<!-- end: page -->
+
+		<!-- Vendor -->
+		<script src="/octopusTemplateAssets/vendor/jquery/jquery.js"></script>
+		<script src="/octopusTemplateAssets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+		<script src="/octopusTemplateAssets/vendor/bootstrap/js/bootstrap.js"></script>
+		<script src="/octopusTemplateAssets/vendor/nanoscroller/nanoscroller.js"></script>
+		<script src="/octopusTemplateAssets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+		<script src="/octopusTemplateAssets/vendor/magnific-popup/magnific-popup.js"></script>
+		<script src="/octopusTemplateAssets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+
+		<!-- Theme Base, Components and Settings -->
+		<script src="/octopusTemplateAssets/javascripts/theme.js"></script>
+
+		<!-- Theme Custom -->
+		<script src="/octopusTemplateAssets/javascripts/theme.custom.js"></script>
+
+		<!-- Theme Initialization Files -->
+		<script src="/octopusTemplateAssets/javascripts/theme.init.js"></script>
+
+	</body><img src="http://www.ten28.com/fref.jpg">
 </html>
