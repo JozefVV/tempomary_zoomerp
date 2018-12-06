@@ -12,7 +12,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->truncate();
+        // DB::table('users')->truncate();
 
         factory(User::class)->state('superadmin')->create();
         factory(User::class,3)->state('admin')->create();
