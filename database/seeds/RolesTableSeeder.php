@@ -15,7 +15,7 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('roles')->truncate();
+        // DB::table('roles')->truncate(); //fails when seeding empty db on strict DB settings
         app()['cache']->forget('spatie.permission.cache');  //delete spatie`s cache
 
         Role::create(['name' => 'superadmin']);     // Užívateľ "superadmin" je všetko, čo je "admin". Okrem toho je táto rola v systéme len jedna. Vzniká pri prvotnom nastavení systému. Užívateľ "superadmin" nemôže byť zmazaný.
