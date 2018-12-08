@@ -323,7 +323,7 @@
 
                             <div class="widget-profile-info">
                                 <div class="profile-picture">
-                                    <img src="/octopusTemplateAssets/images/!logged-user.jpg">
+                                    <img src="{{ asset( 'octopusTemplateAssets/images/!logged-user.jpg')}}">
                                 </div>
                                 <div class="profile-info">
                                     <h4 class="name text-semibold">John Doe</h4>
@@ -443,28 +443,28 @@
                                         <ul class="simple-user-list mb-xlg">
                                             <li>
                                                 <figure class="image rounded">
-                                                    <img src="/octopusTemplateAssets/images/!sample-user.jpg" alt="Joseph Doe Junior" class="img-circle">
+                                                    <img src="{{ asset( 'octopusTemplateAssets/images/!sample-user.jpg')}}" alt="Joseph Doe Junior" class="img-circle">
                                                 </figure>
                                                 <span class="title">Joseph Doe Junior</span>
                                                 <span class="message">Lorem ipsum dolor sit.</span>
                                             </li>
                                             <li>
                                                 <figure class="image rounded">
-                                                    <img src="/octopusTemplateAssets/images/!sample-user.jpg" alt="Joseph Junior" class="img-circle">
+                                                    <img src="{{ asset( 'octopusTemplateAssets/images/!sample-user.jpg')}}" alt="Joseph Junior" class="img-circle">
                                                 </figure>
                                                 <span class="title">Joseph Junior</span>
                                                 <span class="message">Lorem ipsum dolor sit.</span>
                                             </li>
                                             <li>
                                                 <figure class="image rounded">
-                                                    <img src="/octopusTemplateAssets/images/!sample-user.jpg" alt="Joe Junior" class="img-circle">
+                                                    <img src="{{ asset( 'octopusTemplateAssets/images/!sample-user.jpg')}}" alt="Joe Junior" class="img-circle">
                                                 </figure>
                                                 <span class="title">Joe Junior</span>
                                                 <span class="message">Lorem ipsum dolor sit.</span>
                                             </li>
                                             <li>
                                                 <figure class="image rounded">
-                                                    <img src="/octopusTemplateAssets/images/!sample-user.jpg" alt="Joseph Doe Junior" class="img-circle">
+                                                    <img src="{{ asset( 'octopusTemplateAssets/images/!sample-user.jpg')}}" alt="Joseph Doe Junior" class="img-circle">
                                                 </figure>
                                                 <span class="title">Joseph Doe Junior</span>
                                                 <span class="message">Lorem ipsum dolor sit.</span>
@@ -541,21 +541,21 @@
                         <ul class="simple-user-list">
                             <li>
                                 <figure class="image rounded">
-                                    <img src="/octopusTemplateAssets/images/!sample-user.jpg" alt="Joseph Doe Junior" class="img-circle">
+                                    <img src="{{ asset( 'octopusTemplateAssets/images/!sample-user.jpg')}}" alt="Joseph Doe Junior" class="img-circle">
                                 </figure>
                                 <span class="title">Joseph Doe Junior</span>
                                 <span class="message truncate">Lorem ipsum dolor sit.</span>
                             </li>
                             <li>
                                 <figure class="image rounded">
-                                    <img src="/octopusTemplateAssets/images/!sample-user.jpg" alt="Joseph Junior" class="img-circle">
+                                    <img src="{{ asset( 'octopusTemplateAssets/images/!sample-user.jpg')}}" alt="Joseph Junior" class="img-circle">
                                 </figure>
                                 <span class="title">Joseph Junior</span>
                                 <span class="message truncate">Lorem ipsum dolor sit.</span>
                             </li>
                             <li>
                                 <figure class="image rounded">
-                                    <img src="/octopusTemplateAssets/images/!sample-user.jpg" alt="Joe Junior" class="img-circle">
+                                    <img src="{{ asset( 'octopusTemplateAssets/images/!sample-user.jpg')}}" alt="Joe Junior" class="img-circle">
                                 </figure>
                                 <span class="title">Joe Junior</span>
                                 <span class="message truncate">Lorem ipsum dolor sit.</span>
@@ -611,7 +611,7 @@
                                         </p>
                                         <div class="thumbnail-gallery">
                                             <a class="img-thumbnail lightbox" href="/octopusTemplateAssets/images/projects/project-4.jpg" data-plugin-options='{ "type":"image" }'>
-                                                <img class="img-responsive" width="215" src="/octopusTemplateAssets/images/projects/project-4.jpg">
+                                                <img class="img-responsive" width="215" src="{{ asset( 'octopusTemplateAssets/images/projects/project-4.jpg')}}">
                                                 <span class="zoom">
                                                     <i class="fa fa-search"></i>
                                                 </span>

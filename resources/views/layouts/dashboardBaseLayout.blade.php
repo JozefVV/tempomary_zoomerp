@@ -17,32 +17,32 @@
 		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
 
 		<!-- Vendor CSS -->
-		<link rel="stylesheet" href="/octopusTemplateAssets/vendor/bootstrap/css/bootstrap.css" />
-		<link rel="stylesheet" href="/octopusTemplateAssets/vendor/font-awesome/css/font-awesome.css" />
-		<link rel="stylesheet" href="/octopusTemplateAssets/vendor/magnific-popup/magnific-popup.css" />
-		<link rel="stylesheet" href="/octopusTemplateAssets/vendor/bootstrap-datepicker/css/datepicker3.css" />
-		<link rel="stylesheet" href="/assets/SweetAlert2/sweetalert2.min.css" />
+		<link rel="stylesheet" href="{{ asset( 'octopusTemplateAssets/vendor/bootstrap/css/bootstrap.css' )}}" />
+		<link rel="stylesheet" href="{{ asset( 'octopusTemplateAssets/vendor/font-awesome/css/font-awesome.css' )}}" />
+		<link rel="stylesheet" href="{{ asset( 'octopusTemplateAssets/vendor/magnific-popup/magnific-popup.css' )}}" />
+		<link rel="stylesheet" href="{{ asset( 'octopusTemplateAssets/vendor/bootstrap-datepicker/css/datepicker3.css' )}}" />
+		<link rel="stylesheet" href="{{ asset( 'assets/SweetAlert2/sweetalert2.min.css' )}}" />
 
 		<!-- Specific Page Vendor CSS -->
-		<link rel="stylesheet" href="/octopusTemplateAssets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css" />
-		<link rel="stylesheet" href="/octopusTemplateAssets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
-		<link rel="stylesheet" href="/octopusTemplateAssets/vendor/morris/morris.css" />
+		<link rel="stylesheet" href="{{ asset( 'octopusTemplateAssets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css' )}}" />
+		<link rel="stylesheet" href="{{ asset( 'octopusTemplateAssets/vendor/bootstrap-multiselect/bootstrap-multiselect.css' )}}" />
+		<link rel="stylesheet" href="{{ asset( 'octopusTemplateAssets/vendor/morris/morris.css' )}}" />
 
 		<!-- Theme CSS -->
-		<link rel="stylesheet" href="/octopusTemplateAssets/stylesheets/theme.css" />
+		<link rel="stylesheet" href="{{ asset( 'octopusTemplateAssets/stylesheets/theme.css' )}}" />
 
 		<!-- Skin CSS -->
-		<link rel="stylesheet" href="/octopusTemplateAssets/stylesheets/skins/default.css" />
+		<link rel="stylesheet" href="{{ asset( 'octopusTemplateAssets/stylesheets/skins/default.css' )}}" />
 
 		<!-- Theme Custom CSS -->
-		<link rel="stylesheet" href="/octopusTemplateAssets/stylesheets/theme-custom.css">
+		<link rel="stylesheet" href="{{ asset( 'octopusTemplateAssets/stylesheets/theme-custom.css' )}}">
 
 		<!-- Head Libs -->
-		<script src="/octopusTemplateAssets/vendor/modernizr/modernizr.js"></script>
-        <script src="/octopusTemplateAssets/vendor/jquery/jquery.js"></script>
-        <script src="/octopusTemplateAssets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
-        <script src="/octopusTemplateAssets/vendor/bootstrap/js/bootstrap.js"></script>
-        <script src="/assets/SweetAlert2/sweetalert2.min.js"></script>
+		<script src="{{ asset( 'octopusTemplateAssets/vendor/modernizr/modernizr.js' )}}"></script>
+        <script src="{{ asset( 'octopusTemplateAssets/vendor/jquery/jquery.js' )}}"></script>
+        <script src="{{ asset( 'octopusTemplateAssets/vendor/jquery-browser-mobile/jquery.browser.mobile.js' )}}"></script>
+        <script src="{{ asset( 'octopusTemplateAssets/vendor/bootstrap/js/bootstrap.js' )}}"></script>
+        <script src="{{ asset( 'assets/SweetAlert2/sweetalert2.min.js' )}}"></script>
 	</head>
     <body>
         <section class="body">

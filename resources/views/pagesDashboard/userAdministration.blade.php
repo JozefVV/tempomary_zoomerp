@@ -1,7 +1,7 @@
 @extends('layouts.dashboardBaseLayout')
 @section('content')
 
-<link rel="stylesheet" type="text/css" href="/assets/DataTables/datatables.min.css"/>
+<link rel="stylesheet" type="text/css" href="{{ asset( 'assets/DataTables/datatables.min.css' )}}"/>
 
 
 <section class="panel">
@@ -51,7 +51,7 @@
         <input name="id" value="0" type="number"/>
     </form>
 
-    <script type="text/javascript" src="/assets/DataTables/datatables.min.js"></script>
+    <script type="text/javascript" src="{{ asset( '/assets/DataTables/datatables.min.js')}}"></script>
     <script>
         $(document).ready( function () {
             $('#datatable-default').DataTable();

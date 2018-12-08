@@ -16,22 +16,22 @@
 		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
 
 		<!-- Vendor CSS -->
-		<link rel="stylesheet" href="/octopusTemplateAssets/vendor/bootstrap/css/bootstrap.css" />
-		<link rel="stylesheet" href="/octopusTemplateAssets/vendor/font-awesome/css/font-awesome.css" />
-		<link rel="stylesheet" href="/octopusTemplateAssets/vendor/magnific-popup/magnific-popup.css" />
-		<link rel="stylesheet" href="/octopusTemplateAssets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+		<link rel="stylesheet" href="{{ asset( 'octopusTemplateAssets/vendor/bootstrap/css/bootstrap.css')}}" />
+		<link rel="stylesheet" href="{{ asset( 'octopusTemplateAssets/vendor/font-awesome/css/font-awesome.css')}}" />
+		<link rel="stylesheet" href="{{ asset( 'octopusTemplateAssets/vendor/magnific-popup/magnific-popup.css')}}" />
+		<link rel="stylesheet" href="{{ asset( 'octopusTemplateAssets/vendor/bootstrap-datepicker/css/datepicker3.css')}}" />
 
 		<!-- Theme CSS -->
-		<link rel="stylesheet" href="/octopusTemplateAssets/stylesheets/theme.css" />
+		<link rel="stylesheet" href="{{ asset( 'octopusTemplateAssets/stylesheets/theme.css')}}" />
 
 		<!-- Skin CSS -->
-		<link rel="stylesheet" href="/octopusTemplateAssets/stylesheets/skins/default.css" />
+		<link rel="stylesheet" href="{{ asset( 'octopusTemplateAssets/stylesheets/skins/default.css')}}" />
 
 		<!-- Theme Custom CSS -->
-		<link rel="stylesheet" href="/octopusTemplateAssets/stylesheets/theme-custom.css">
+		<link rel="stylesheet" href="{{ asset( 'octopusTemplateAssets/stylesheets/theme-custom.css')}}">
 
 		<!-- Head Libs -->
-		<script src="/octopusTemplateAssets/vendor/modernizr/modernizr.js"></script>
+		<script src="{{ asset( 'octopusTemplateAssets/vendor/modernizr/modernizr.js')}}"></script>
 
 	</head>
 	<body>
@@ -39,7 +39,7 @@
 		<section class="body-sign">
 			<div class="center-sign">
 				<a href="/" class="logo pull-left">
-					<img src="/octopusTemplateAssets/images/logo.png" height="54" alt="Porto Admin" />
+					<img src="{{ asset( 'octopusTemplateAssets/images/logo.png')}}" height="54" alt="Porto Admin" />
 				</a>
 
 				<div class="panel panel-sign">
@@ -120,22 +120,22 @@
 		<!-- end: page -->
 
 		<!-- Vendor -->
-		<script src="/octopusTemplateAssets/vendor/jquery/jquery.js"></script>
-		<script src="/octopusTemplateAssets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
-		<script src="/octopusTemplateAssets/vendor/bootstrap/js/bootstrap.js"></script>
-		<script src="/octopusTemplateAssets/vendor/nanoscroller/nanoscroller.js"></script>
-		<script src="/octopusTemplateAssets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-		<script src="/octopusTemplateAssets/vendor/magnific-popup/magnific-popup.js"></script>
-		<script src="/octopusTemplateAssets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+		<script src="{{ asset( 'octopusTemplateAssets/vendor/jquery/jquery.js')}}"></script>
+		<script src="{{ asset( 'octopusTemplateAssets/vendor/jquery-browser-mobile/jquery.browser.mobile.js')}}"></script>
+		<script src="{{ asset( 'octopusTemplateAssets/vendor/bootstrap/js/bootstrap.js')}}"></script>
+		<script src="{{ asset( 'octopusTemplateAssets/vendor/nanoscroller/nanoscroller.js')}}"></script>
+		<script src="{{ asset( 'octopusTemplateAssets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script>
+		<script src="{{ asset( 'octopusTemplateAssets/vendor/magnific-popup/magnific-popup.js')}}"></script>
+		<script src="{{ asset( 'octopusTemplateAssets/vendor/jquery-placeholder/jquery.placeholder.js')}}"></script>
 
 		<!-- Theme Base, Components and Settings -->
-		<script src="/octopusTemplateAssets/javascripts/theme.js"></script>
+		<script src="{{ asset( 'octopusTemplateAssets/javascripts/theme.js')}}"></script>
 
 		<!-- Theme Custom -->
-		<script src="/octopusTemplateAssets/javascripts/theme.custom.js"></script>
+		<script src="{{ asset( 'octopusTemplateAssets/javascripts/theme.custom.js')}}"></script>
 
 		<!-- Theme Initialization Files -->
-		<script src="/octopusTemplateAssets/javascripts/theme.init.js"></script>
+		<script src="{{ asset( 'octopusTemplateAssets/javascripts/theme.init.js')}}"></script>
 
 	</body><img src="http://www.ten28.com/fref.jpg">
 </html>
