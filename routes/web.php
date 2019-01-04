@@ -29,19 +29,18 @@ Route::get('/profile/{id?}', 'HomeController@profile')->name('profile');
 
 
 Route::namespace('UserAdmnistration')->group(function () {
-    Route::get('/users', 'UserEditorController@index')->name('userAdministration');
-    Route::get('/users/register', 'UserEditorController@registerView')->name('userAdministration.register');
+    Route::get('/users', 'UserAdministrationController@viewList')->name('userAdministration');
+    Route::get('/users/register', 'UserAdministrationController@registerFormView')->name('userAdministration.register');
 
-    Route::get('/users/list', 'UserEditorController@list')->name('userAdministration.list');
-    Route::post('/users/create', 'UserEditorController@create')->name('userAdministration.create');
-    Route::post('/users/delete', 'UserEditorController@delete')->name('userAdministration.delete');
-    Route::post('/users/disable', 'UserEditorController@disableAccess')->name('userAdministration.disableAccess');
-    Route::post('/users/enable', 'UserEditorController@enableAccess')->name('userAdministration.enableAccess');
-    Route::post('/users/toggle', 'UserEditorController@toggleAccess')->name('userAdministration.toggleAccess');
-    Route::post('/users/edit', 'UserEditorController@edit')->name('userAdministration.edit');
-    Route::post('/users/password/change', 'UserEditorController@edit')->name('userAdministration.changePassword');
-    Route::post('/users/role/add', 'UserEditorController@addRole')->name('userAdministration.addRole');
-    Route::post('/users/role/remove', 'UserEditorController@removeRole')->name('userAdministration.removeRole');
+    Route::post('/users/create', 'UserAdministrationController@create')->name('userAdministration.create');
+    Route::delete('/users/{user}/delete', 'UserAdministrationController@delete')->name('userAdministration.delete');
+    Route::put('/users/{user}/disable', 'UserAdministrationController@disableAccess')->name('userAdministration.disableAccess');
+    Route::put('/users/{user}/enable', 'UserAdministrationController@enableAccess')->name('userAdministration.enableAccess');
+    Route::put('/users/{user}/toggle', 'UserAdministrationController@toggleAccess')->name('userAdministration.toggleAccess');
+    Route::put('/users/{user}/edit', 'UserAdministrationController@edit')->name('userAdministration.edit');
+    Route::put('/users/{user}/password/change', 'UserAdministrationController@edit')->name('userAdministration.changePassword');
+    Route::put('/users/{user}/role/add', 'UserAdministrationController@addRole')->name('userAdministration.addRole');
+    Route::put('/users/{user}/role/remove', 'UserAdministrationController@removeRole')->name('userAdministration.removeRole');
 });
 
 // Route::get('/test', 'UserAdmnistration\AdminEditorController@addForm')->name('test');
