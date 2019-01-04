@@ -18,5 +18,9 @@ class UsersTableSeeder extends Seeder
         factory(User::class,3)->state('admin')->create();
         factory(User::class,5)->state('manager')->create();
         factory(User::class,30)->state('user')->create();
+        factory(User::class)->state('user')->create([
+            'email' => 'tester@example.com'
+        ]);
+
     }
 }

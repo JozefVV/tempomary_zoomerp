@@ -21,9 +21,9 @@ $factory->state(User::class, 'superadmin', function ($user, $faker) {
     return [
         'firstname' => 'Super',
         'lastname' => 'Admin',
-        'email' => 'superadmin@example.org',
+        'email' => env("DEV_LOGIN_SUPERADMIN_EMAIL", "superadmin@example.com"),
         'remember_token' => str_random(10),
-        'password' => Hash::make('12345678')
+        'password' => Hash::make(env("DEV_LOGIN_SUPERADMIN_PASSWORD", "12345678"))
     ];
 });
 $factory->afterCreatingState(User::class, 'superadmin', function ($user, $faker) {
