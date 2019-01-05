@@ -55,17 +55,6 @@ class User extends Authenticatable
         });
     }
 
-    //ensures that when setting password, it will be hashed
-    public function SetPasswordAttribute($value)
-    {
-        $hashInfo = Hash::info($value);
-        if ($hashInfo == "unknown") {
-            $this->attributes['password'] = Hash::make($value);
-        } else {
-            $this->attributes['password'] = $value;
-        }
-    }
-
     public function getFullnameAttribute()
     {
         return ($this->firstname. ' ' .$this->lastname);

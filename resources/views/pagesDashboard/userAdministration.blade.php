@@ -46,8 +46,8 @@
 </section>
 
 {{--
-<form id="toggleUserValidity_form" action="{{ route('userAdministration.toggleAccess',['user'=> 0]) }}" method="POST"
-    enctype="multipart/form-data" class="hidden">
+<form id="toggleUserValidity_form" action="{{ route('userAdministration.toggleAccess',['user'=> 0]) }}" method="POST" enctype="multipart/form-data"
+    class="hidden">
     @csrf
     <input name="id" value="0" type="number" />
 </form> --}}

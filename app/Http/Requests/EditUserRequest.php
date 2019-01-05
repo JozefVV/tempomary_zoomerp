@@ -27,7 +27,6 @@ class EditUserRequest extends FormRequest
             'lastname' => ['sometimes', 'string', 'max:255'],
             'nickname' => ['sometimes', 'string', 'max:255'],
             'email' => ['sometimes', 'string', 'email', 'max:255'],
-            'password' => ['sometimes', 'string', 'min:6', 'confirmed'],
             'role' => ['sometimes', Rule::in($this->allRoles())],
         ];
     }

@@ -33,24 +33,51 @@ class UserAdministrationController extends Controller
 
     public function registerFormView(Request $request)
     {
-        $this->authorize('create');
+        // $this->authorize('create');
+        $roles = Role::where('hidden', false)->get();
 
-        return view('pagesDashboard.registerUser');
+        return view('pagesDashboard.registerUser', ['roles' => $roles]);
     }
 
     public function create(CreateUserRequest $request)
     {
         $this->authorize('create');
+        $newUser = $this->registerUser($request->validated());
 
-        $validatedValues = $request->validated();
-        $role = array_pull($validatedValues, 'role');
-
-        $newUser = User::create($validatedValues);
-        $newUser->assignRole($role);
-
-        return redirect()->route('userAdministration');
+        return redirect()->route('userAdministration.list');
     }
+    public function edit(EditUserRequest $request, User $user)
+    {
+        $this->authorize('update', $user);
 
+        $validatedData = $request->validated();
+        $role = array_pull($validatedData, 'role');
+
+        $user->update($validatedData);
+
+        if ($role) {
+            $user->syncRoles([$role]);
+        }
+
+        return Redirect::back();
+    }
+    public function delete(User $user)
+    {
+        $this->authorize('delete', $user);
+        $user->delete();
+        return Redirect::back();
+    }
+    public function changePassword(Request $request, User $user)
+    {
+        $this->authorize('update', $user);
+        $validatedData = $request->validate([
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+        ]);
+
+        $user->password = Hash::make($validatedData['password']);
+        $user->save();
+        return Redirect::back();
+    }
     public function disableAccess(User $user)
     {
         $this->authorize('update', $user);
@@ -69,26 +96,14 @@ class UserAdministrationController extends Controller
         $user->toggleAccess()->save();
         return Redirect::back();
     }
-    public function delete(User $user)
+
+    private function registerUser($params)
     {
-        $this->authorize('delete', $user);
-        $user->delete();
-        return Redirect::back();
-    }
+        $role = array_pull($params, 'role');
+        $params['password'] = Hash::make($params['password']);
 
-    public function edit(EditUserRequest $request, User $user)
-    {
-        $this->authorize('update', $user);
-
-        $validatedData = $request->validated();
-        $role = array_pull($validatedData, 'role');
-
-        $user->update($validatedData);
-
-        if ($role) {
-            $user->syncRoles([$role]);
-        }
-
-        return Redirect::back();
+        $newUser = User::create($params);
+        $newUser->assignRole($role);
+        return $newUser;
     }
 }

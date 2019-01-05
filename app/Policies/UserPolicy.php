@@ -29,7 +29,7 @@ class UserPolicy
      */
     public function view(User $user, User $model)
     {
-        //
+        return ($user->can('update users')) || ($user->id == $model->$id);
     }
 
     /**

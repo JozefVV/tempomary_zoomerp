@@ -39,9 +39,9 @@ class CreateUserRequest extends FormRequest
         ];
     }
 
-    private function allRoles() //todo: should be moved to model class if possible
+    private function allRoles()
     {
-        $rolesCollection = Role::all();
+        $rolesCollection = Role::where('hidden', false)->get();
         $rolesArray = [];
         foreach ($rolesCollection as $roleObject) {
             $rolesArray[] = $roleObject->name;

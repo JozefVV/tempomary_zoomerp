@@ -20,14 +20,5 @@ class HomeController extends Controller
         return view('dashboard');
     }
 
-    public function profile(Request $request, $id = null)
-    {
-        if($id === null)
-        {
-            $user = Auth::User();
-        }else{
-            $user = User::findOrFail($id);
-        }
-        return view('pagesDashboard.userProfile',['user' => $user]);
-    }
+   
 }
