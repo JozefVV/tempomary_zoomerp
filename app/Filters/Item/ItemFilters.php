@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Filters\Product;
+namespace App\Filters\Item;
 
 use App\Filters\FiltersAbstract;
-use App\Models\Product;
+use App\Models\Item;
 
 use App\Filters\Product\{
     TextFilter
 };
 
-class ProductFilters extends FiltersAbstract
+class ItemFilters extends FiltersAbstract
 {
     /**
      * Default course filters.

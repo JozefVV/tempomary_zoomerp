@@ -131,7 +131,7 @@ class ItemsSeeder extends Seeder
 
         $attributeInstance = AttributeInstance::create([
             "value" => $atr_value,
-            "attribute_id" => $attributeType->id,
+            "attribute_type_id" => $attributeType->id,
             "item_id" => $item->id
         ]);
 

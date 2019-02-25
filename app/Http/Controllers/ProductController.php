@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\Item;
+use App\Models\AttributeInstance;
+use App\Models\AttributeType;
 use Illuminate\Http\Request;
-use App\Http\Resources\ProductCollection;
+use App\Http\Resources\ItemCollection;
 
 class ProductController extends Controller
 {
@@ -15,12 +17,15 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $products = Product::with('type', 'atributes')->filter($request)->get();
-        return new ProductCollection($products);
+        // $products = Item::with('type', 'atributes')->filter($request)->get();
+        // return new ProductCollection($products);
+        $items = Item::with(['categories','attributeInstances'])->filter($request)->get();
+        return new ItemCollection($items);
     }
+
     public function list()
     {
-        return Product::with('type', 'atributes')->get();
+        return Item::with('categories', 'attributeInstances')->get();
     }
 
     /**

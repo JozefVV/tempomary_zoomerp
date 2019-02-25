@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filters\Course;
+namespace App\Filters\Item;
 
 use App\Filters\FilterAbstract;
 use Illuminate\Database\Eloquent\Builder;
@@ -15,9 +15,9 @@ class TextFilter extends FilterAbstract
     public function mappings()
     {
         return [
-            'theory' => 'theory',
-            'project' => 'project',
-            'snippet' => 'snippet',
+            // 'theory' => 'theory',
+            // 'project' => 'project',
+            // 'snippet' => 'snippet',
         ];
     }
 
@@ -34,7 +34,7 @@ class TextFilter extends FilterAbstract
         if ($value === null) {
             return $builder;
         }
-        
+
         return $builder->where('type', $value);
     }
 }

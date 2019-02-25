@@ -16,7 +16,7 @@ class CreateAttributeInstancesTable extends Migration
         Schema::create('attribute_instances', function (Blueprint $table) {
             $table->increments('id');
             $table->string('value', 1024);
-            $table->unsignedInteger('attribute_id');
+            $table->unsignedInteger('attribute_type_id');
             $table->unsignedInteger('item_id');
             $table->timestamps();
         });

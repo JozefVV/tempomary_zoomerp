@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class AttributeType extends Model
 {
-    public function values()
+    public function AttributeInstance()
     {
         return $this->hasMany('App\Models\AttributeInstance');
     }

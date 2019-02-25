@@ -3,9 +3,9 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
-use App\Http\Resources\ProductResource;
+use App\Http\Resources\ItemResource;
 
-class ProductCollection extends ResourceCollection
+class ItemCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
@@ -19,7 +19,7 @@ class ProductCollection extends ResourceCollection
             'meta' => [
                 'total' => $this->collection->count(),
             ],
-            'data' => ProductResource::collection($this->collection),
+            'data' => ItemResource::collection($this->collection),
         ];
     }
 }
