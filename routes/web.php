@@ -13,6 +13,15 @@
 
 use Illuminate\Support\Facades\Route;
 
+/////////////////////////////////////
+// for debuging database calls //////
+/////////////////////////////////////
+// use Illuminate\Support\Facades\DB;
+// DB::listen(function ($query) {
+//     var_dump($query->sql);
+// });
+////////////////////////////////////
+
 Route::get('/', function () {
     //space for some landing/info page
     //now just redirect right into dashboard if logged in
@@ -24,6 +33,11 @@ Auth::routes(['register' => false]);
 
 // Nasledujuce url len pre prihlaseneho users
 Route::get('/dashboard', 'HomeController@index')->name('home');
+
+
+
+Route::get('/products', 'ProductController@index')->name('products');
+Route::get('/products/list', 'ProductController@list')->name('products.list');
 
 
 Route::get('/user/{user}', 'UserAdmnistration\UserProfileController@profile')->name('profile');

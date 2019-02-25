@@ -33,7 +33,7 @@ class UserAdministrationController extends Controller
 
     public function registerFormView(Request $request)
     {
-        // $this->authorize('create');
+        $this->authorize('create');
         $roles = Role::where('hidden', false)->get();
 
         return view('pagesDashboard.registerUser', ['roles' => $roles]);
