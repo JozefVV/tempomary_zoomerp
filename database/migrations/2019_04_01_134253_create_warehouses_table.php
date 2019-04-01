@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAttributeInstancesTable extends Migration
+class CreateWarehousesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateAttributeInstancesTable extends Migration
      */
     public function up()
     {
-        Schema::create('attribute_instances', function (Blueprint $table) {
+        Schema::create('warehouses', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('value', 1024);
-            $table->unsignedInteger('attribute_type_id');
-            $table->unsignedInteger('item_id');
-            $table->timestamps();
+            $table->unsignedInteger('address_id');
+            $table->string('name', 255);
+
+            $table->foreign('address_id')->references('id')->on('addresses');
         });
     }
 
@@ -29,6 +29,6 @@ class CreateAttributeInstancesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attribute_instances');
+        Schema::dropIfExists('warehouses');
     }
 }

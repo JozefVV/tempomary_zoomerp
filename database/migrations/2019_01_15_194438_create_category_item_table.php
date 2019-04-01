@@ -17,6 +17,9 @@ class CreateCategoryItemTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('item_id');
+
+            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('item_id')->references('id')->on('items');
         });
     }
 
