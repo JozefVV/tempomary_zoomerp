@@ -7,20 +7,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Spatie\Permission\Models\Role;
 
-
-
-
 class CreateUserRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return Auth::User()->can('create users');
-    }
 
     /**
      * Get the validation rules that apply to the request.
@@ -53,10 +41,9 @@ class CreateUserRequest extends FormRequest
 
     private function allRoles()
     {
-        $rolesCollection = Role::all();
+        $rolesCollection = Role::where('hidden', false)->get();
         $rolesArray = [];
-        foreach($rolesCollection as $roleObject)
-        {
+        foreach ($rolesCollection as $roleObject) {
             $rolesArray[] = $roleObject->name;
         }
         return $rolesArray;

@@ -8,9 +8,9 @@
     </header>
     <div class="panel-body">
         <h4 class="mb-xlg">Personal information</h4>
-        <form class="form-horizontal form-bordered" action="{{ route('userAdministration.edit') }}" method="post" enctype="multipart/form-data">
-            @csrf
-            <input type="number" name="id" value="{{ $user->id }}" class="hidden" />
+        <form class="form-horizontal form-bordered" action="{{ route('userAdministration.edit',['user' => $user->id]) }}" method="post"
+            enctype="multipart/form-data">
+            @csrf {{method_field('PUT')}}
             <div class="form-group">
                 <label class="col-md-3 control-label" for="inputDefault">First name</label>
                 <div class="col-md-6">
@@ -42,16 +42,16 @@
                 <label class="col-md-3 control-label">Role</label>
                 <div class="col-md-6">
                     <select class="form-control" name="role">
-                        <option>user</option>
-                        <option>manager</option>
-                        <option>admin</option>
+                        @foreach ($roles as $role)
+                        <option value="{{$role->name}}" @if ($role->name == $user->role)
+                            selected
+                        @endif>{{$role->name_SK}}</option>
+                        @endforeach
                     </select>
-                </div>
-                @if ($errors->has('role'))
-                    <span class="invalid-feedback" role="alert">
+                </div> @if ($errors->has('role'))
+                <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('role') }}</strong>
-                    </span>
-                @endif
+                    </span> @endif
             </div>
             @endhasanyrole
             <div class="form-group">
@@ -60,22 +60,18 @@
         </form>
         <hr class="dotted tall">
         <h4 class="mb-xlg">Change Password</h4>
-        <form class="form-horizontal form-bordered" action="{{ route('userAdministration.changePassword') }}" method="post" enctype="multipart/form-data">
-            @csrf
-            <input type="number" name="id" value="{{ $user->id }}" class="hidden" />
-            @hasanyrole('superadmin|admin') @else
-            <div class="form-group">
-                <label class="col-md-3 control-label">Old Password</label>
-                <div class="col-md-8">
-                    <input type="password" name="password_old" class="form-control">
-                </div>
-            </div>
-            @endhasanyrole
+        <form class="form-horizontal form-bordered" action="{{ route('userAdministration.changePassword',['user' => $user->id]) }}"
+            method="post" enctype="multipart/form-data">
+            @csrf {{method_field('PUT')}}
             <div class="form-group">
                 <label class="col-md-3 control-label">New Password</label>
                 <div class="col-md-8">
                     <input type="password" name="password" class="form-control">
                 </div>
+                @if ($errors->has('old_password'))
+                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('password') }}</strong>
+                                        </span> @endif
             </div>
             <div class="form-group">
                 <label class="col-md-3 control-label">Repeat New Password</label>
