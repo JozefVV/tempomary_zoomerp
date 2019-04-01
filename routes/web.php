@@ -57,4 +57,24 @@ Route::namespace('UserAdmnistration')->group(function () {
     Route::put('/users/{user}/role/remove', 'UserAdministrationController@removeRole')->name('userAdministration.removeRole');
 });
 
+
+Route::resource('atribute', 'AttributeController');
+Route::resource('item', 'ItemController');
+Route::resource('suplier', 'SuplierController');
+Route::resource('customer', 'CustomerController');
+Route::resource('warehouse', 'WarehouseController');
+Route::resource('shop', 'ShopController');
+Route::resource('category', 'CategoryController');
+
+/*
+verb        path                        action  route name
+GET	        /resource	                index	resource.index
+GET	        /resource/create	        create	resource.create
+POST	    /resource	                store	resource.store
+GET	        /resource/{resource}	    show	resource.show
+GET	        /resource/{resource}/edit	edit	resource.edit
+PUT/PATCH	/resource/{resource}	    update	resource.update
+DELETE	    /resource/{resource}	    destroy	resource.destroy
+*/
+
 // Route::get('/test', 'UserAdmnistration\AdminEditorController@addForm')->name('test');

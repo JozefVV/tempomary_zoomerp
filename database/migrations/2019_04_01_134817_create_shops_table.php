@@ -18,6 +18,7 @@ class CreateShopsTable extends Migration
             $table->string('name', 255);
             $table->unsignedInteger('warehouse_id')->nullable();
             $table->unsignedInteger('address_id');
+            $table->softDeletes();
 
             $table->foreign('warehouse_id')->references('id')->on('warehouses');
             $table->foreign('address_id')->references('id')->on('addresses');
