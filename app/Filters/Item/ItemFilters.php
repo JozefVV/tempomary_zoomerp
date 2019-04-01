@@ -5,9 +5,8 @@ namespace App\Filters\Item;
 use App\Filters\FiltersAbstract;
 use App\Models\Item;
 
-use App\Filters\Product\{
-    TextFilter
-};
+use App\Filters\Item\LessThanFilter;
+use App\Filters\Item\GreaterThanFilter;
 
 class ItemFilters extends FiltersAbstract
 {
@@ -17,7 +16,12 @@ class ItemFilters extends FiltersAbstract
      * @var array
      */
     protected $filters = [
-        // 'text' => TextFilter::class,
+        'lt' => LessThanFilter::class,
+        'gt' => GreaterThanFilter::class,
+        'eq' => EqualFilter::class,
+        'contains' => ContainsFilter::class,
+        'sw' => StartsWithFilter::class,
+        'ew' => EndsWithFilter::class,
     ];
 
     public static function mappings()

@@ -14,7 +14,7 @@ abstract class FilterAbstract
      *
      * @return Builder
      */
-    public abstract function filter(Builder $builder, $value);
+    abstract public function filter(Builder $builder, $value);
 
     /**
      * Database value mappings.
@@ -49,5 +49,16 @@ abstract class FilterAbstract
             'desc' => 'desc',
             'asc' => 'asc'
         ], $direction, 'desc');
+    }
+
+    /**
+    * Parse value to multiples by set delimiter.
+    *
+    * @param  mixed $key
+    * @return mixed
+    */
+    protected function splitValueToMultiple($value)
+    {
+        return explode(';', $value);
     }
 }

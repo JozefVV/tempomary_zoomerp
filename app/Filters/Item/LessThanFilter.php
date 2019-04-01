@@ -5,7 +5,7 @@ namespace App\Filters\Item;
 use App\Filters\FilterAbstract;
 use Illuminate\Database\Eloquent\Builder;
 
-class TextFilter extends FilterAbstract
+class LessThanFilter extends FilterAbstract
 {
     /**
      * Mappings for database values.
