@@ -34,6 +34,8 @@ Auth::routes(['register' => false]);
 // Nasledujuce url len pre prihlaseneho users
 Route::get('/dashboard', 'HomeController@index')->name('home');
 
+//page to show when the page is not implemented yet but working on it
+Route::get('/soon', 'HomeController@soon')->name('soon');
 
 
 Route::get('/products', 'ProductController@index')->name('products');
@@ -58,6 +60,7 @@ Route::namespace('UserAdmnistration')->group(function () {
 });
 
 
+
 Route::resource('atribute', 'AttributeController');
 Route::resource('item', 'ItemController');
 Route::resource('suplier', 'SuplierController');
@@ -65,6 +68,7 @@ Route::resource('customer', 'CustomerController');
 Route::resource('warehouse', 'WarehouseController');
 Route::resource('shop', 'ShopController');
 Route::resource('category', 'CategoryController');
+Route::resource('address', 'AddressController');
 
 /*
 verb        path                        action  route name

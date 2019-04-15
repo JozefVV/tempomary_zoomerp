@@ -1,7 +1,7 @@
 @extends('layouts.dashboardBaseLayout')
-
 @section('content')
-<div class="row">
+<div class="content-margin">
+    <div class="row">
         <div class="col-md-6">
             <section class="panel">
                 <header class="panel-heading">
@@ -11,14 +11,14 @@
                     </div>
 
                     <h2 class="panel-title">Best Seller</h2>
-                    <p class="panel-subtitle">Customize the graphs as much as you want, there are so many options and features to display information using JSOFT Admin Template.</p>
+                    <p class="panel-subtitle">Customize the graphs as much as you want, there are so many options and features to display information
+                        using JSOFT Admin Template.</p>
                 </header>
                 <div class="panel-body">
 
                     <!-- Flot: Basic -->
                     <div class="chart chart-md" id="flotDashBasic"></div>
                     <script>
-
                         var flotDashBasicData = [{
                             data: [
                                 [0, 170],
@@ -70,7 +70,6 @@
                         }];
 
                         // See: /octopusTemplateAssets/javascripts/dashboard/examples.dashboard.js for more settings.
-
                     </script>
 
                 </div>
@@ -84,7 +83,8 @@
                         <a href="#" class="fa fa-times"></a>
                     </div>
                     <h2 class="panel-title">Server Usage</h2>
-                    <p class="panel-subtitle">It's easy to create custom graphs on JSOFT Admin Template, there are several graph types that you can use, such as lines, bars, pie charts, etc...</p>
+                    <p class="panel-subtitle">It's easy to create custom graphs on JSOFT Admin Template, there are several graph types that you can
+                        use, such as lines, bars, pie charts, etc...</p>
                 </header>
                 <div class="panel-body">
 
@@ -119,7 +119,6 @@
                                     <!-- Flot: Sales JSOFT Admin -->
                                     <div class="chart chart-sm" data-sales-rel="JSOFT Admin" id="flotDashSales1" class="chart-active"></div>
                                     <script>
-
                                         var flotDashSales1Data = [{
                                             data: [
                                                 ["Jan", 140],
@@ -135,13 +134,11 @@
                                         }];
 
                                         // See: /octopusTemplateAssets/javascripts/dashboard/examples.dashboard.js for more settings.
-
                                     </script>
 
                                     <!-- Flot: Sales JSOFT Drupal -->
                                     <div class="chart chart-sm" data-sales-rel="JSOFT Drupal" id="flotDashSales2" class="chart-hidden"></div>
                                     <script>
-
                                         var flotDashSales2Data = [{
                                             data: [
                                                 ["Jan", 240],
@@ -157,13 +154,11 @@
                                         }];
 
                                         // See: /octopusTemplateAssets/javascripts/dashboard/examples.dashboard.js for more settings.
-
                                     </script>
 
                                     <!-- Flot: Sales JSOFT Wordpress -->
                                     <div class="chart chart-sm" data-sales-rel="JSOFT Wordpress" id="flotDashSales3" class="chart-hidden"></div>
                                     <script>
-
                                         var flotDashSales3Data = [{
                                             data: [
                                                 ["Jan", 840],
@@ -179,7 +174,6 @@
                                         }];
 
                                         // See: /octopusTemplateAssets/javascripts/dashboard/examples.dashboard.js for more settings.
-
                                     </script>
                                 </div>
 
@@ -599,7 +593,8 @@
                                     <div class="tm-box">
                                         <p class="text-muted mb-none">7 months ago.</p>
                                         <p>
-                                            It's awesome when we find a good solution for our projects, JSOFT Admin is <span class="text-primary">#awesome</span>
+                                            It's awesome when we find a good solution for our projects, JSOFT Admin is
+                                            <span class="text-primary">#awesome</span>
                                         </p>
                                     </div>
                                 </li>
@@ -670,7 +665,8 @@
                                     <td><span class="label label-success">Success</span></td>
                                     <td>
                                         <div class="progress progress-sm progress-half-rounded m-none mt-xs light">
-                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                                style="width: 100%;">
                                                 100%
                                             </div>
                                         </div>
@@ -682,7 +678,8 @@
                                     <td><span class="label label-success">Success</span></td>
                                     <td>
                                         <div class="progress progress-sm progress-half-rounded m-none mt-xs light">
-                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                                style="width: 100%;">
                                                 100%
                                             </div>
                                         </div>
@@ -694,7 +691,8 @@
                                     <td><span class="label label-warning">Warning</span></td>
                                     <td>
                                         <div class="progress progress-sm progress-half-rounded m-none mt-xs light">
-                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                                style="width: 60%;">
                                                 60%
                                             </div>
                                         </div>
@@ -706,7 +704,8 @@
                                     <td><span class="label label-success">Success</span></td>
                                     <td>
                                         <div class="progress progress-sm progress-half-rounded m-none mt-xs light">
-                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
+                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                                style="width: 90%;">
                                                 90%
                                             </div>
                                         </div>
@@ -718,7 +717,8 @@
                                     <td><span class="label label-warning">Warning</span></td>
                                     <td>
                                         <div class="progress progress-sm progress-half-rounded m-none mt-xs light">
-                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
+                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                                style="width: 45%;">
                                                 45%
                                             </div>
                                         </div>
@@ -730,7 +730,8 @@
                                     <td><span class="label label-danger">Danger</span></td>
                                     <td>
                                         <div class="progress progress-sm progress-half-rounded m-none mt-xs light">
-                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                                style="width: 40%;">
                                                 40%
                                             </div>
                                         </div>
@@ -742,7 +743,8 @@
                                     <td><span class="label label-success">Success</span></td>
                                     <td>
                                         <div class="progress progress-sm progress-half-rounded mt-xs light">
-                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 95%;">
+                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                                style="width: 95%;">
                                                 95%
                                             </div>
                                         </div>
@@ -755,5 +757,6 @@
             </section>
         </div>
     </div>
-    <!-- end: page -->
+</div>
+<!-- end: page -->
 @endsection

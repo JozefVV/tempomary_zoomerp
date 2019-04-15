@@ -16,7 +16,10 @@ class ShopController extends Controller
      */
     public function index()
     {
-        return ShopResource::collection(Shop::with(['addresses','warehouses'])->paginate(25));
+        $shops = Shop::with(['address','warehouse'])->get();
+
+        // return response()->json($shops);
+        return view('pages.shops.index', ['shops'=>$shops]);
     }
 
     /**
@@ -74,8 +77,7 @@ class ShopController extends Controller
      */
     public function edit(Shop $shop)
     {
-        //TODO
-        return "TODO";
+        return view('pages.shops.edit', ['shop'=>$shop]);
     }
 
     /**
@@ -87,9 +89,9 @@ class ShopController extends Controller
      */
     public function update(Request $request, Shop $shop)
     {
-        $shop->update($request->only(['name']));
+        $shop->update($request->only(['name','email','phone']));
 
-        return new ShopResource($shop);
+        return back();
     }
 
     /**
@@ -102,6 +104,7 @@ class ShopController extends Controller
     {
         $shop->delete();
 
-        return response()->json(null, 204);
+        // return response()->json(null, 204);
+        return back();
     }
 }

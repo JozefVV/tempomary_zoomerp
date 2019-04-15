@@ -23,6 +23,6 @@ class UserProfileController extends Controller
         $this->authorize('view');
         $roles = Role::where('hidden', false)->get();
 
-        return view('pagesDashboard.userProfile', ['user' => $user, 'roles' => $roles]);
+        return view('pages.userProfile', ['user' => $user, 'roles' => $roles]);
     }
 }

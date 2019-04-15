@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Address;
-use App\Models\Warehouse;
 use Illuminate\Http\Request;
-use App\Http\Resources\WarehouseResource;
+use App\Models\Address;
 
-class WarehouseController extends Controller
+class AddressController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,7 @@ class WarehouseController extends Controller
      */
     public function index()
     {
-        $wh = Warehouse::with(['address'])->get();
-        return view('pages.warehouses.index', ['warehouses'=>$wh]);
+        return AddressResource::collection(Address::all());
     }
 
     /**
@@ -38,19 +35,11 @@ class WarehouseController extends Controller
      */
     public function store(Request $request)
     {
-        // create address of shop
         $address = Address::create([$request->address]);
         if ($address == null) {
             // Log::debug('An informational message.');
             abort(400, 'Address not found but it is required');
         }
-        //if said so, create warehouse asigned to shop
-        $warehouse = Warehouse::create([
-            'name' => $request->name,
-            'address_id' => $address->id,
-        ]);
-
-        return new WarehouseResource($shop);
     }
 
     /**
@@ -59,9 +48,9 @@ class WarehouseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Warehouse $warehouse)
+    public function show(Address $address)
     {
-        return new WarehouseResource($warehouse);
+        return "TODO";
     }
 
     /**
@@ -70,9 +59,9 @@ class WarehouseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Warehouse $warehouse)
+    public function edit(Address $address)
     {
-        return view('pages.warehouses.edit', ['warehouse'=>$warehouse]);
+        return "TODO";
     }
 
     /**
@@ -82,9 +71,9 @@ class WarehouseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Warehouse $warehouse)
+    public function update(Request $request, Address $address)
     {
-        $warehouse->update($request->only(['name']));
+        $address->update($request->except(['id']));
 
         return back();
     }
@@ -95,11 +84,8 @@ class WarehouseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Warehouse $warehouse)
+    public function destroy($id)
     {
-        $warehouse->delete();
-
-        // return response()->json(null, 204);
-        return back();
+        //
     }
 }

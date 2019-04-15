@@ -28,7 +28,7 @@ class UserAdministrationController extends Controller
 
         $userList = User::UserList()->get();
 
-        return view('pagesDashboard.userAdministration', ['users' => $userList]);
+        return view('pages.userAdministration', ['users' => $userList]);
     }
 
     public function registerFormView(Request $request)
@@ -36,7 +36,7 @@ class UserAdministrationController extends Controller
         $this->authorize('create');
         $roles = Role::where('hidden', false)->get();
 
-        return view('pagesDashboard.registerUser', ['roles' => $roles]);
+        return view('pages.registerUser', ['roles' => $roles]);
     }
 
     public function create(CreateUserRequest $request)
