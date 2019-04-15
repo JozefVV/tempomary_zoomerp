@@ -29,7 +29,7 @@
                         <td>{{$warehouse->address->city}}</td>
                         <td>
                             @if (is_null($warehouse->shop)) - @else
-                            <a href="#">{{$warehouse->shop->name}}</a> @endif
+                            <a href="{{ route('shop.edit',['shop' => $warehouse->shop->id]) }}">{{$warehouse->shop->name}}</a>                            @endif
                         </td>
                         <td class="actions">
                             <a href="{{ route('warehouse.edit',['warehouse' => $warehouse->id]) }}"><i class="fa fa-pencil"></i></a>
