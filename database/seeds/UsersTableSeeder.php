@@ -15,9 +15,9 @@ class UsersTableSeeder extends Seeder
         // DB::table('users')->truncate();
 
         factory(User::class)->state('superadmin')->create();
-        factory(User::class, 3)->state('admin')->create();
-        factory(User::class, 5)->state('manager')->create();
-        factory(User::class, 20)->state('user')->create();
+        factory(User::class, 2)->state('admin')->create();
+        factory(User::class, 2)->state('manager')->create();
+        factory(User::class, 5)->state('user')->create();
 
 
         factory(User::class)->state('admin')->create([

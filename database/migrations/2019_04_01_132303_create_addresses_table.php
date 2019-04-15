@@ -20,6 +20,8 @@ class CreateAddressesTable extends Migration
             $table->string('city', 255);
             $table->string('street_name', 255);
             $table->string('country', 128);
+            $table->string('latitude', 128)->nullable();
+            $table->string('longitude', 128)->nullable();
         });
     }
     /**

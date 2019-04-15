@@ -16,6 +16,8 @@ class CreateShopsTable extends Migration
         Schema::create('shops', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 255);
+            $table->string('email', 255);
+            $table->string('phone', 255);
             $table->unsignedInteger('warehouse_id')->nullable();
             $table->unsignedInteger('address_id');
             $table->softDeletes();

@@ -6,10 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
-
 class HomeController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth');
@@ -20,5 +18,8 @@ class HomeController extends Controller
         return view('dashboard');
     }
 
-   
+    public function soon()
+    {
+        return "this page is under construction and will be implemented soon";
+    }
 }

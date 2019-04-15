@@ -1,1 +1,8 @@
 /* Add here all your CSS customizations */
+.panel-fill {
+    padding: 0;
+}
+
+.content-margin {
+    margin: 40px;
+}
