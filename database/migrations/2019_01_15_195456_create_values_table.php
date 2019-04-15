@@ -22,7 +22,7 @@ class CreateValuesTable extends Migration
             $table->timestamp('value_timestamp')->nullable();
             $table->timestamps();
 
-            $table->foreign('attribute_id')->references('id')->on('atributes');
+            $table->foreign('attribute_id')->references('id')->on('attributes');
             $table->foreign('item_id')->references('id')->on('items');
         });
     }
