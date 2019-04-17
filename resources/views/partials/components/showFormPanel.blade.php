@@ -5,8 +5,7 @@
                 {{-- <a href="#" class="fa fa-caret-down"></a> --}}
                 <a href="#" class="fa fa-edit edit_form_btn"></a>
                 <a href="#" class="fa fa-undo cancel_form_btn" style="display:none"></a>
-                <a href="#" class="fa fa-save save_form_btn" style="display:none"></a>
-                <a href="#" class="fa fa-times"></a>
+                <a href="#" class="fa fa-save save_form_btn" style="display:none"></a> {{-- <a href="#" class="fa fa-times"></a>                --}}
             </div>
             <h2 class="panel-title">{{$title}}</h2>
         </div>

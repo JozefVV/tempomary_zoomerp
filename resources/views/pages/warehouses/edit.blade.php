@@ -23,7 +23,7 @@
                     <label class="col-md-3 control-label" for="inputDefault">Pobočka</label>
                     <div class="col-md-9">
                         @if (is_null($warehouse->shop)) Nie je @else
-                        <a href="#">{{$warehouse->shop->name}}</a> @endif
+                        <a href="{{ route('shop.edit',['shop' => $warehouse->shop->id]) }}">{{$warehouse->shop->name}}</a>                        @endif
                     </div>
                 </div>
             </form>
