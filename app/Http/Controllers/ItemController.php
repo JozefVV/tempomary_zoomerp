@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Attribute;
 use Illuminate\Http\Request;
 use App\Http\Resources\ItemCollection;
+use App\Models\Category;
 
 class ItemController extends Controller
 {
@@ -13,9 +15,10 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return new ItemCollection(Item::with(['categories','attributeInstances'])->filter($request)->get());
+        $items = Item::with(['categories','attributeInstances'])->filter($request)->get();
+        return view('pages.items.index', ['items'=>$items]);
     }
 
     /**
@@ -25,7 +28,9 @@ class ItemController extends Controller
      */
     public function create()
     {
-        return "TODO";
+        $categories = Category::all();
+        $attributes = Attribute::all();
+        return view('pages.items.new', ['categories'=>$categories,'attributes'=>$attributes]);
     }
 
     /**

@@ -39,13 +39,13 @@
                             <span>Sklady</span>
                         </a>
                     </li>
-                    {{--
+                    
                     <li class="nav">
                         <a href="{{ route('item.index') }}">
                             <i class="fa fa-table" aria-hidden="true"></i>
                             <span>Produkty</span>
                         </a>
-                    </li> --}}
+                    </li>
                 </ul>
             </nav>
         </div>
