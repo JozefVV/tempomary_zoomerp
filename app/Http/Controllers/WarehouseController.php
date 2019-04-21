@@ -27,7 +27,7 @@ class WarehouseController extends Controller
      */
     public function create()
     {
-        return "TODO";
+        return view('pages.warehouses.new');
     }
 
     /**
@@ -39,18 +39,15 @@ class WarehouseController extends Controller
     public function store(Request $request)
     {
         // create address of shop
-        $address = Address::create([$request->address]);
-        if ($address == null) {
-            // Log::debug('An informational message.');
-            abort(400, 'Address not found but it is required');
-        }
+        $address = Address::create($request->address);
+
         //if said so, create warehouse asigned to shop
         $warehouse = Warehouse::create([
             'name' => $request->name,
             'address_id' => $address->id,
         ]);
 
-        return new WarehouseResource($shop);
+        return redirect()->route('warehouse.index');
     }
 
     /**

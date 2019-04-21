@@ -6,7 +6,7 @@
 
 <section class="panel">
     <header class="panel-heading">
-        <a class="btn btn-primary pull-right" href="{{ route('userAdministration.register') }}">Add <i class="fa fa-plus"></i></a>
+        <a class="btn btn-primary pull-right" href="{{ route('shop.create') }}">Add <i class="fa fa-plus"></i></a>
         <h2 class="panel-title">Pobočky</h2>
     </header>
     <div class="panel-body" style="display: block;">

@@ -6,7 +6,7 @@
 
 <section class="panel">
     <header class="panel-heading">
-        <a class="btn btn-primary pull-right" href="{{ route('userAdministration.register') }}">Add <i class="fa fa-plus"></i></a>
+        <a class="btn btn-primary pull-right" href="{{ route('warehouse.create') }}">Nový <i class="fa fa-plus"></i></a>
         <h2 class="panel-title">Sklady</h2>
     </header>
     <div class="panel-body" style="display: block;">
@@ -29,7 +29,7 @@
                         <td>{{$warehouse->address->city}}</td>
                         <td>
                             @if (is_null($warehouse->shop)) - @else
-                            <a href="#">{{$warehouse->shop->name}}</a> @endif
+                            <a href="{{route('shop.edit',['shop' => $warehouse->shop->id])}}">{{$warehouse->shop->name}}</a>                            @endif
                         </td>
                         <td class="actions">
                             <a href="{{ route('warehouse.edit',['warehouse' => $warehouse->id]) }}"><i class="fa fa-pencil"></i></a>
