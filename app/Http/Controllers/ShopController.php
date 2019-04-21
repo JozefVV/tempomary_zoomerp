@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Shop;
+use App\Models\Address;
 use App\Models\Warehouse;
 use Illuminate\Http\Request;
 use App\Http\Resources\ShopResource;
@@ -29,7 +30,7 @@ class ShopController extends Controller
      */
     public function create()
     {
-        return "TODO";
+        return view('pages.shops.new');
     }
 
     /**
@@ -40,22 +41,23 @@ class ShopController extends Controller
      */
     public function store(Request $request)
     {
+        //create the shop
+        $shop = Shop::create($request->except('address'));
+
         // create address of shop
-        $address = Address::create([$request->address]);
-        if ($address == null) {
-            // Log::debug('An informational message.');
-            abort(400, 'Address not found but it is required');
-        }
+        $address = Address::create($request->address);
+        $shop->address()->associate($address);
+        
         //if said so, create warehouse asigned to shop
         $warehouse = Warehouse::create([
             'name' => $request->name,
             'address_id' => $address->id,
         ]);
-
-        //create the shop
-        $shop = Shop::create([$request]);
-
-        return new ShopResource($shop);
+        $shop->warehouse()->associate($warehouse);
+        
+        $shop->save();
+        
+        return redirect()->route('shop.index');
     }
 
     /**

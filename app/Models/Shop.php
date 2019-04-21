@@ -11,7 +11,7 @@ class Shop extends Model
 {
     use SoftDeletes;
     public $timestamps = false;
-    protected $guarded = ['id'];
+    protected $fillable = ['name','email','phone'];
 
     public function address()
     {
