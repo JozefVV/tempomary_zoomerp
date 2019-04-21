@@ -19,11 +19,11 @@
                                     <div class="summary">
                                         <h4 class="title">Sklady</h4>
                                         <div class="info">
-                                            <strong class="amount">11</strong>
+                                            <strong class="amount">{{$featured_panels['warehouses']['count']}}</strong>
                                         </div>
                                     </div>
                                     <div class="summary-footer">
-                                        <a class="text-muted text-uppercase">(viac)</a>
+                                        <a class="text-muted text-uppercase" href="{{$featured_panels['warehouses']['link']}}">(viac)</a>
                                     </div>
                                 </div>
                             </div>
@@ -43,11 +43,11 @@
                                     <div class="summary">
                                         <h4 class="title">Pobočky</h4>
                                         <div class="info">
-                                            <strong class="amount">9</strong>
+                                            <strong class="amount">{{$featured_panels['shops']['count']}}</strong>
                                         </div>
                                     </div>
                                     <div class="summary-footer">
-                                        <a class="text-muted text-uppercase">(viac)</a>
+                                        <a class="text-muted text-uppercase" href="{{$featured_panels['shops']['link']}}">(viac)</a>
                                     </div>
                                 </div>
                             </div>
@@ -60,18 +60,18 @@
                             <div class="widget-summary">
                                 <div class="widget-summary-col widget-summary-col-icon">
                                     <div class="summary-icon bg-quartenary">
-                                        <i class="fa fa-user"></i>
+                                        <i class="fa fa-cube"></i>
                                     </div>
                                 </div>
                                 <div class="widget-summary-col">
                                     <div class="summary">
                                         <h4 class="title">Produkty</h4>
                                         <div class="info">
-                                            <strong class="amount">465</strong>
+                                            <strong class="amount">{{$featured_panels['items']['count']}}</strong>
                                         </div>
                                     </div>
                                     <div class="summary-footer">
-                                        <a class="text-muted text-uppercase">(viac)</a>
+                                        <a class="text-muted text-uppercase" href="{{$featured_panels['items']['link']}}">(viac)</a>
                                     </div>
                                 </div>
                             </div>
@@ -84,19 +84,21 @@
                             <div class="widget-summary">
                                 <div class="widget-summary-col widget-summary-col-icon">
                                     <div class="summary-icon bg-primary">
-                                        <i class="fa fa-life-ring"></i>
+                                        <i class="fa fa-user"></i>
                                     </div>
                                 </div>
                                 <div class="widget-summary-col">
                                     <div class="summary">
                                         <h4 class="title">Používatelia</h4>
                                         <div class="info">
-                                            <strong class="amount">24</strong>
-                                            <span class="text-primary">(4 nový)</span>
+                                            <strong class="amount">{{$featured_panels['users']['count']}}</strong>
+                                            @if($featured_panels['users']['new'] != 0)
+                                                <span class="text-primary">({{$featured_panels['users']['new']}} nový)</span>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="summary-footer">
-                                        <a class="text-muted text-uppercase">(viac)</a>
+                                        <a class="text-muted text-uppercase" href="{{$featured_panels['users']['link']}}">(viac)</a>
                                     </div>
                                 </div>
                             </div>
@@ -105,8 +107,9 @@
                 </div>
             </div>
         </div>
-            {{-- <div class="col-md-6 col-lg-12 col-xl-6">
-            </div> --}}
+        {{--
+        <div class="col-md-6 col-lg-12 col-xl-6">
+        </div> --}}
     </div>
 
 

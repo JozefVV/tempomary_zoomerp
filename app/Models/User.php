@@ -55,6 +55,17 @@ class User extends Authenticatable
         });
     }
 
+    /**
+     * Scope a query to only include not yet verified users a.k.a new users.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeNew($query)
+    {
+        return $query->where('enabled', 0);
+    }
+
     public function getFullnameAttribute()
     {
         return ($this->firstname. ' ' .$this->lastname);
