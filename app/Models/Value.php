@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Value extends Model
 {
+    public $guarded = [];
     // protected $with = ['AttributeType'];
     // protected $table = AttributeType;
 

@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
 use App\Http\Resources\CategoryResource;
+use Illuminate\Support\Facades\Redirect;
 
 class CategoryController extends Controller
 {
@@ -15,7 +19,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return CategoryResource::collection(Category::with(['subcategory'])->paginate(25));
+        return CategoryResource::collection(Category::paginate(25));
     }
 
     /**
@@ -23,9 +27,13 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return "TODO";
+        $request->session()->flash('prevUrl', url()->previous());
+
+        $categories = Category::all();
+
+        return view('pages.categories.new', ['categories'=>$categories]);
     }
 
     /**
@@ -36,10 +44,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //create the shop
-        $category = Category::create([$request]);
 
-        return new CategoryResource($category);
+        //create the shop
+        $category = Category::create(['name' => $request->input('category_name')]);
+
+        if (Session::has('prevUrl')) {
+            return Redirect::to(Session::get('prevUrl'))->with('success', 'Category created successfully');
+        }
+        Log::warning('Variable "prevUrl" not found in session, cant redirect to previous route so redirecting to default route');
+        return redirect()->route('category.index')->with('success', 'Category created successfully');
     }
 
     /**

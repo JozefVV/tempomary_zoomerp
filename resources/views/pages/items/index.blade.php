@@ -6,8 +6,8 @@
 
 <section class="panel">
     <header class="panel-heading">
-        <a class="btn btn-primary pull-right" href="{{ route('item.create') }}">Add <i class="fa fa-plus"></i></a>
-        <h2 class="panel-title">Pobočky</h2>
+        <a class="btn btn-primary pull-right" href="{{ route('item.create') }}">Nový <i class="fa fa-plus"></i></a>
+        <h2 class="panel-title">Produkty</h2>
     </header>
     <div class="panel-body" style="display: block;">
         <div class="table-responsive">
@@ -29,10 +29,11 @@
                         <td>{{$item->name}}</td>
                         <td>
                             @forelse ($item->categories as $category)
-                                <p>{{$category->name}},<p>
-                            @empty
-                                <p>Žiadne kategórie</p>
-                            @endforelse
+                            <p>{{$category->name}},
+                                <p>
+                                    @empty
+                                    <p>Žiadne kategórie</p>
+                                    @endforelse
                         </td>
                         <td></td>
                         <td></td>

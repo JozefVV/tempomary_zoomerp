@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 
 class Item extends Model
 {
+    public $guarded = [];
+
     public function scopeFilter(Builder $builder, Request $request, array $filters = [])
     {
         return ( new ItemFilters(request()) )->add($filters)->filter($builder);
@@ -18,8 +20,8 @@ class Item extends Model
     {
         return $this->belongsToMany('App\Models\Category');
     }
-    public function attributeInstances()
-    {
-        return $this->hasMany('App\Models\AttributeInstance');
-    }
+    // public function attributeInstances()
+    // {
+    //     return $this->hasMany('App\Models\AttributeInstance');
+    // }
 }
