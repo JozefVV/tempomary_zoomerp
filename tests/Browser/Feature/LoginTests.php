@@ -1,14 +1,12 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Browser\Feature;
 
-use Tests\TestCase;
-use App\Models\User;
-use Spatie\Permission\Models\Role;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\DuskTestCase;
+use Laravel\Dusk\Browser;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class LoginTest extends TestCase
+class LoginTests extends DuskTestCase
 {
     /**
      * Basic login test, user can login to application

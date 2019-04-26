@@ -18,7 +18,7 @@ trait CreatesApplication
         $app->make(Kernel::class)->bootstrap();
 
         \Artisan::call('migrate:fresh');
-        \Artisan::call('db:seed --class RolesTableSeeder');
+        \Artisan::call('db:seed', [ '--class' => 'RolesTableSeeder']);
 
         return $app;
     }

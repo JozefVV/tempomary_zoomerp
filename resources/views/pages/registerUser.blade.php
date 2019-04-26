@@ -68,7 +68,7 @@
 
                 <div class="row">
                     <div class="col-sm-12 text-center">
-                        <button type="submit" class="btn btn-primary btn-block btn-lg">Create</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-lg">Registruj</button>
                     </div>
                 </div>
 
